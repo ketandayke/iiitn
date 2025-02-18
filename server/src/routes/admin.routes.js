@@ -1,4 +1,4 @@
-import {Rotuer} from "express";
+import {Router} from "express";
 
 const router=Router();
 router.route("/profile").get(showAdminProfile);
