@@ -1,32 +1,25 @@
 import express from "express";
-import cookieParser from "cookie-parser";
-import cors from "cors";
+import { ConnectDB } from "./config/db.js";
 import dotenv from "dotenv";
-import { errorHandler } from "./middlewares/errorHandler.js";
-import adminRouter from "./routes/admin.routes.js";
-import alumniRouter from "./routes/alumni.routes.js";
+import noticeRoutes from "./routes/notice.js"; // Importing the notice routes
+import tendersRoutes from "./routes/tenders.js"; // Import tenders routes
+import alumniRoutes from "./routes/alumni.js"; // Import alumni routes
 
-dotenv.config()
+dotenv.config();  // Initialize environment variables
 const app = express();
 
-app.use(cors(
-    {
-        origin:process.env.CORS_ORIGIN,
-        secure:false
-    }
-));
-app.use(express.static("public"));
-app.use(express.json({limit:"16kb"}));
-app.use(express.urlencoded({extended:true,limit:"16kb"}));
-app.use(cookieParser());
+// Connect to MongoDB
+ConnectDB();
 
-app.get("/",(req,res)=>{
-      res.json({"college":"IIITN"});
-})
+// Middleware to parse incoming JSON requests
+app.use(express.json());
 
-app.use("/api/v1/admin",adminRouter);
-app.use("api/v1/alumni",alumniRouter)
-app.use("error",errorHandler);
+// Use the routes
+app.use("/api/notices", noticeRoutes);  // Notice routes
+app.use("/api/tenders", tendersRoutes);  // Tenders routes
+app.use("/api/alumni", alumniRoutes);    // Alumni routes
+
+
 
 
 export {app};
