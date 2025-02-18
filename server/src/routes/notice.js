@@ -5,9 +5,10 @@ import { adminAuth } from "../middlewares/adminAuth.js"; // Admin auth middlewar
 const router = express.Router();
 
 // Admin route to create a notice
-router.post("/", adminAuth, createNotice);
+// router.post("/create", adminAuth, createNotice);
+router.post("/create",createNotice);
 
 // Public route to get all notices
-router.get("/", getNotices);
+router.get("/all-notices", getNotices);
 
 export default router;

@@ -1,10 +1,14 @@
 import Notice from "../models/notice.js";
+import {ApiError} from "../utils/apiError.js"
 
 // Create a new notice
 export const createNotice = async (req, res) => {
   const { title, description, postedBy } = req.body;
 
   try {
+    if([title,description,postedBy].some((field)=>(field==""||field.trim()===""))){
+        throw ApiError(404,"All fields are necessary")
+    }
     const newNotice = new Notice({
       title,
       description,

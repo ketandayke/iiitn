@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 // Middleware to check if the user is an admin
 export const adminAuth = (req, res, next) => {
-  const token = req.headers["authorization"];
+  const token = req.headers["authorization"].replace("BEARER","");
   
   if (!token) {
     return res.status(403).json({ message: "No token provided!" });
@@ -25,3 +25,4 @@ export const adminAuth = (req, res, next) => {
     return res.status(500).json({ message: "Token verification failed!" });
   }
 };
+
