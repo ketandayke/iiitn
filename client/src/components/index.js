@@ -1,2 +1,3 @@
 import Homepage from "../pages/Homepage";
-export {Homepage}
+import HamburgerMenu from "./hamburgerMenu";
+export {Homepage,HamburgerMenu}
