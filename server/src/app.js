@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import noticeRoutes from "./routes/notice.js"
 import tendersRoutes from "./routes/tender.routes.js";
 import alumniRoutes from "./routes/alumni.routes.js";
+import facultyRoutes from "./routes/facultyRoutes.js";
 import cors from "cors";
 dotenv.config();  // Initialize environment variables
 const app = express();
@@ -20,6 +21,6 @@ app.use(cookieParser());
 app.use("/api/v1/tenders", tendersRoutes);  // Tenders routes
 app.use("/api/v1/alumni", alumniRoutes);    // Alumni routes
 app.use("/api/v1/notices", noticeRoutes);  // Notice routes
-
+app.use("/api/faculty", facultyRoutes);
 
 export {app};
