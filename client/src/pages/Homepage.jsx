@@ -24,7 +24,7 @@ export default function Homepage() {
               </h3>
             </div>
           </div>
-          <div id="ji">hello</div>
+
           <div>
             <input
               type="text"
