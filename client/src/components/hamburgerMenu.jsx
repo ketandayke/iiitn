@@ -7,7 +7,7 @@ export default function HamburgerMenu({ className = "" }) {
     <div className="">
       {/* Hamburger Icon */}
       <div
-        className={`hamburger ${className} flex flex-col justify-between cursor-pointer p-1.25 z-50 ${open ? "active" : ""}`}
+        className={`hamburger ${className} flex flex-col justify-between items-center cursor-pointer p-1.5 z-50 ${open ? "active" : ""}`}
         onClick={() => setOpen(!open)}
       >
         <span className="bar w-full h-1 bg-blue-600 transition-all"></span>

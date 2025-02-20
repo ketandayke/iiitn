@@ -1,13 +1,13 @@
 import React from "react";
-import {HamburgerMenu} from "../components/index.js";
+import {HamburgerMenu, SearchBar} from "../components/index.js";
 
 export default function Homepage() {
   return (
     <>
-      <div className="w-screen h-screen background px-12">
+      <div className="w-screen h-screen background px-12 bg-fixed">
         {/* Hamburger Menu */}
-        <div className="h-24 pt-6 flex justify-between items-center backdrop-blur-md">
-            <HamburgerMenu className=" top-8 left-8 w-12 h-10 " />
+        <div className="w-full h-24 pt-6 flex justify-between items-center backdrop-blur-md fixed top-0">
+            <HamburgerMenu className="absolute top-8 left-8 w-12 h-10" />
             <div className="flex items-center justify-center gap-2">
               <img src="../../images/iiitn_logo.svg"
                    alt="iiitn logo"
@@ -22,14 +22,16 @@ export default function Homepage() {
             
             </div>
 
-            <div>
-               <input type="text" placeholder="search" className="w-20 h-10 bg-slate-400"></input>
-            </div>
+            <SearchBar className="w-72"/>
 
 
         </div>
 
+
         
+      </div>
+      <div className="w-full h-screen bg-blue-400">
+
       </div>
     </>
   );
