@@ -1,5 +1,5 @@
 import React from "react";
-import { HamburgerMenu, SearchBar } from "../components/index.js";
+import { AboutUs, HamburgerMenu, SearchBar } from "../components/index.js";
 
 export default function Homepage() {
   return (
@@ -13,7 +13,7 @@ export default function Homepage() {
                    alt="iiitn logo"
                    className=" w-12 h-12 md:w-16 md:h-16"
               ></img>
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
               <h2>भारतीय सूचना प्रौद्योगिकी संस्थान, नागपुर</h2>
               <h2 className="text-blue-600 font-bold text-xl">Indian Institute of Information Technology ,Nagpur</h2>
               <h3 className="text-orange-300">An Institution of National Importance By An Act of Parliament</h3>
@@ -22,12 +22,13 @@ export default function Homepage() {
             
             </div>
 
-            <SearchBar className="w-72"/>
+            <SearchBar className="lg:w-72"/>
 
 
         </div>
       </div>
       <div className="w-full h-screen bg-blue-400"></div>
+      <AboutUs />
     </>
   );
 }
