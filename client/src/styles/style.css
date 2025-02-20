@@ -68,7 +68,7 @@ td a {
 td a:hover {
   text-decoration: underline;
 }
-======= .background {
+.background {
   background-image: url("../../images/hero.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -93,21 +93,3 @@ td a:hover {
 .hamburger:hover {
   border: 2px solid white;
 }
-
-/* 
-.perspective {
-  perspective: 1000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-} */
->>>>>>> 040ec8d29b4e922fa252489dfab537c563668f61
