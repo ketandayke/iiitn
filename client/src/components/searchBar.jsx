@@ -25,7 +25,7 @@ export default function SearchBar({ className = "" }) {
   }, []);
 
   return (
-    <div className={`relative w-64 ${className}} ref={dropdownRef`}>
+    <div className={`relative w-12  ${className}} ref={dropdownRef`}>
       {/* Search Input */}
       <input
         type="text"
@@ -43,7 +43,7 @@ export default function SearchBar({ className = "" }) {
             filteredOptions.map((option, index) => (
               <div
                 key={index}
-                className="p-2 cursor-pointer hover:bg-gray-200"
+                className="cursor-pointer hover:bg-gray-200"
                 onClick={() => {
                   setSearchTerm(option);
                   setIsOpen(false);
@@ -53,7 +53,7 @@ export default function SearchBar({ className = "" }) {
               </div>
             ))
           ) : (
-            <div className="p-2 text-gray-500">No results found</div>
+            <div className=" text-gray-500">No results found</div>
           )}
         </div>
       )}
