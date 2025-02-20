@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { AboutUs, Facilities, Homepage } from "./components/index.js";
+import { AboutUs, Facilities, Homepage,Director,Chairman,Registrar,Staff } from "./components/index.js";
 
 
 
@@ -10,7 +10,7 @@ function App() {
       <Homepage />
       <AboutUs />
       <Facilities />
-      <div className="container">
+      {/* <div className="container">
       <h1>Administration</h1>
       <div className="navbar">
         <button onClick={() => setSelectedPage("director")}>Director</button>
@@ -25,7 +25,7 @@ function App() {
         {selectedPage === "chairman" && <Chairman />}
         {selectedPage === "staff" && <Staff />}
       </div>
-    </div>
+    </div> */}
     </>
   );
 }
