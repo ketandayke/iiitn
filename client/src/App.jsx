@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import { Homepage } from './components'
+import Administration from "./Administration";
 
 function App() {
- 
-
   return (
-    <>
-     <Homepage />
-    </>
-  )
+    <div className="p-5">
+      <Administration />
+    </div>
+  );
 }
 
-export default App
+export default App;

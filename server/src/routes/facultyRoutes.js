@@ -6,15 +6,15 @@ import {
   updateFaculty,
   deleteFaculty,
 } from "../controllers/facultyController.js";
-import { isAdmin } from "../middlewares/authMiddleware.js"; // 👈 Import middleware
+import {adminAuth} from "../middlewares/adminAuth.js"; // 👈 Import middleware
 
 const router = express.Router();
 
 router.get("/", getAllFaculty); // ✅ Anyone can view
 router.get("/:id", getFacultyById); // ✅ Anyone can view
 
-router.post("/", isAdmin, createFaculty); // ❌ Only Admin
-router.put("/:id", isAdmin, updateFaculty); // ❌ Only Admin
-router.delete("/:id", isAdmin, deleteFaculty); // ❌ Only Admin
+router.post("/", adminAuth, createFaculty); // ❌ Only Admin
+router.put("/:id", adminAuth, updateFaculty); // ❌ Only Admin
+router.delete("/:id", adminAuth, deleteFaculty); // ❌ Only Admin
 
 export default router;

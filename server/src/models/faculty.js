@@ -9,7 +9,7 @@ const FacultySchema = new mongoose.Schema(
     contact: { type: String, required: true },
     qualifications: { type: [String], default: [] },
     experience: { type: String, required: true },
-    subjects_taught: { type: [String], default: [] },
+    subjects_taught: { type: [String], default: [] }, 
     publications: [
       {
         title: String,
