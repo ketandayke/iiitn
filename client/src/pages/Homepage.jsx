@@ -1,5 +1,5 @@
 import React from "react";
-import {HamburgerMenu, SearchBar} from "../components/index.js";
+import { HamburgerMenu, SearchBar } from "../components/index.js";
 
 export default function Homepage() {
   return (
@@ -19,30 +19,15 @@ export default function Homepage() {
               <h3 className="text-orange-300">An Institution of National Importance By An Act of Parliament</h3>
 
               </div>
-              <div className="md:flex w-28 hidden ">
-                <img src="../../images/bharat_sarkar_logo.png"
-                     alt="bharat sarkar"
-                     className="w-12 h-12 "
-                 ></img>
-                <img src="../../images/swach_bharat.png"
-                     alt="bharat sarkar"
-                     className="w-16 h-16 "
-                 ></img>
-              </div>
             
             </div>
 
-            <SearchBar className=""/>
+            <SearchBar className="w-72"/>
 
 
         </div>
-
-
-        
       </div>
-      <div className="w-full h-screen bg-blue-400">
-
-      </div>
+      <div className="w-full h-screen bg-blue-400"></div>
     </>
   );
 }
