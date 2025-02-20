@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { AboutUs, Homepage } from "./components/index.js";
+import { AboutUs, Facilities, Homepage } from "./components/index.js";
 
 function App() {
   return (
     <>
       <Homepage />
       <AboutUs />
+      <Facilities />
     </>
   );
 }
