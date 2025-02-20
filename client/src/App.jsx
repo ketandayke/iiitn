@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import { Homepage } from './components'
+import { useState } from "react";
+import { AboutUs, Homepage } from "./components/index.js";
 
 function App() {
- 
-
   return (
     <>
-     <Homepage />
+      <Homepage />
+      <AboutUs />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
