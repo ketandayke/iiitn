@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import "./index.css";
 import Director from "./pages/Director";
@@ -30,4 +31,18 @@ const App = () => {
   );
 };
 
+=======
+import { useState } from "react";
+import { AboutUs, Homepage } from "./components/index.js";
+
+function App() {
+  return (
+    <>
+      <Homepage />
+      <AboutUs />
+    </>
+  );
+}
+
+>>>>>>> 040ec8d29b4e922fa252489dfab537c563668f61
 export default App;

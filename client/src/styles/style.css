@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -68,3 +69,47 @@ td a {
 td a:hover {
   text-decoration: underline;
 }
+=======
+.background {
+  background-image: url("../../images/hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 1rem;
+  position: absolute;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 1rem;
+  position: absolute;
+}
+.hamburger:hover {
+  border: 2px solid white;
+}
+
+/* 
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+} */
+>>>>>>> 040ec8d29b4e922fa252489dfab537c563668f61
