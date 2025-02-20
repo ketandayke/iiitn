@@ -1,6 +1,9 @@
 import Homepage from "../pages/Homepage";
 import HamburgerMenu from "./hamburgerMenu";
 import SearchBar from "./searchBar";
+<<<<<<< HEAD
+
+export {Homepage,HamburgerMenu,SearchBar}
+=======
 import AboutUs from "../pages/about us/act";
-import Facilities from "../pages/about us/facilities";
-export { Homepage, HamburgerMenu, SearchBar, AboutUs, Facilities };
+export { Homepage, HamburgerMenu, SearchBar, AboutUs };
