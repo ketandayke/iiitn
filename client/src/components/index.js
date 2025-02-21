@@ -3,7 +3,7 @@ import SearchBar from "./searchBar";
 import LeadershipCard from "./LeadershipCard";
 import StaffTable from "./StaffTable";
 import AdminNavbar from "./adminNavbar"
-import Navbar from "./navbar.jsx";
+import Navbar from "./temp.jsx";
 import Hero from "./hero.jsx";
 import Mission from "./mission.jsx";
 import StatsCounter from "./statsCounter.jsx";
