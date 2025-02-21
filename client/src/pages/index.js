@@ -12,6 +12,8 @@ import WhyRecruitIIITN from "./placements/Why Recruit from IIITN Nagpur";
 import Statistics from "./placements/statistics";
 import ForCompanies from "./placements/ForCompanies";
 import ForStudents from "./placements/ForStudents";
+import ContactTP from "./placements/ContactTP";
+import Internship from "./placements/Intership";
 export {
   Homepage,
   Director,
@@ -27,4 +29,6 @@ export {
   Statistics,
   ForCompanies,
   ForStudents,
+  ContactTP,
+  Internship,
 };

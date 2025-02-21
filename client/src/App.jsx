@@ -10,8 +10,10 @@ import {
   Statistics,
   ForCompanies,
   ForStudents,
+  Internship,
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
+import ContactTP from "./pages/placements/ContactTP.jsx";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/placement/Statistics" element={<Statistics />} />
           <Route path="/placement/ForCompanies" element={<ForCompanies />} />
           <Route path="/placement/ForStudents" element={<ForStudents />} />
+          <Route path="/placement/ContactTP" element={<ContactTP />} />
+          <Route path="/placement/Intership" element={<Internship />} />
         </Routes>
       </Router>
     </>
