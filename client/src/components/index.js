@@ -7,4 +7,6 @@ import Navbar from "./navbar.jsx";
 import Hero from "./hero.jsx";
 import Mission from "./mission.jsx";
 import StatsCounter from "./statsCounter.jsx";
-export {HamburgerMenu,SearchBar,LeadershipCard,StaffTable,Navbar,AdminNavbar,Hero,Mission,StatsCounter}
+import Latest from "./latest.jsx";
+import News from "./news.jsx";
+export {HamburgerMenu,SearchBar,LeadershipCard,StaffTable,Navbar,AdminNavbar,Hero,Mission,StatsCounter,Latest,News}

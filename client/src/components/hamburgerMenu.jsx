@@ -16,7 +16,7 @@ export default function HamburgerMenu({ className = "" }) {
       </div>
 
       {/* Navigation Panel */}
-      <nav
+      {/* <nav
         className={`absolute top-12 right-0 w-48 bg-gray-800 text-white p-4 rounded-lg transition-all duration-300 ${
           open ? "opacity-100 scale-100" : "opacity-0 scale-95 hidden"
         }`}
@@ -27,7 +27,7 @@ export default function HamburgerMenu({ className = "" }) {
           <li className="hover:text-gray-300 cursor-pointer">Services</li>
           <li className="hover:text-gray-300 cursor-pointer">Contact</li>
         </ul>
-      </nav>
+      </nav> */}
     </div>
   );
 }

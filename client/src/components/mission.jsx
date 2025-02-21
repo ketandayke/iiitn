@@ -5,7 +5,7 @@ export default function Mission() {
   return (
     <div className="w-full min-h-min  bg-gray-100 py-12 overflow-hidden">
         <div className="w-[90%] mx-auto">
-        <h2 className="text-center text-3xl sm:text-5xl">
+        <h2 className="text-center text-3xl font-bold sm:text-5xl">
             Shaping the Future of Technology
         </h2>
         <p className="text-center text-xl sm:text-3xl md:px-12 my-12 tracking-wide">
