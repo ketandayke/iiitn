@@ -5,11 +5,12 @@ import { SearchBar } from './index';
 export default function Navbar() {
   return (
     <>
-      <div className="w-full h-24 bg-blue-400 fixed top-0 z-50"> 
+      <div className="w-full h-24 md:px-12 grade1 fixed top-0 z-50"> 
         <div className="w-[90%] h-24 flex justify-between items-center mx-auto">
-          <HamburgerMenu className="w-12 h-10 cursor-pointer" /> 
+             <HamburgerMenu className="absolute top-7  w-[3rem] h-10 xl:w-[3.5rem] xl:h-12 cursor-pointer" /> 
 
-          <div className="flex items-center gap-2 backdrop-blur-md px-2">
+
+          <div className="flex items-center gap-2  px-2">
             <img
               src="../../images/iiitn_logo.svg"
               alt="IIIT Nagpur Logo"
@@ -27,8 +28,10 @@ export default function Navbar() {
               </h3>
             </div>
           </div>
+          <div className="flex items-center justify-cente">
+               <SearchBar className="lg:w-16 " />
 
-          <SearchBar className="lg:w-72" />
+          </div>
         </div>
       </div>
 

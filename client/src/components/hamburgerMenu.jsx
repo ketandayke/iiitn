@@ -7,12 +7,12 @@ export default function HamburgerMenu({ className = "" }) {
     <div className="">
       {/* Hamburger Icon */}
       <div
-        className={`hamburger ${className} flex flex-col justify-between items-center cursor-pointer p-1.5 z-50 ${open ? "active" : ""}`}
+        className={`hamburger ${className} flex flex-col justify-between items-center cursor-pointer p-1.5 ${open ? "active" : ""}`}
         onClick={() => setOpen(!open)}
       >
-        <span className="bar w-full h-1 bg-[#77a9ba] transition-all"></span>
-        <span className="bar w-full h-1 bg-[#77a9ba] transition-all"></span>
-        <span className="bar w-full h-1 bg-[#77a9ba] transition-all"></span>
+        <span className="bar w-full h-1 bg-blue-600 transition-all"></span>
+        <span className="bar w-full h-1 bg-blue-600 transition-all"></span>
+        <span className="bar w-full h-1 bg-blue-600 transition-all"></span>
       </div>
 
       {/* Navigation Panel */}
