@@ -9,4 +9,9 @@ import Mission from "./mission.jsx";
 import StatsCounter from "./statsCounter.jsx";
 import Latest from "./latest.jsx";
 import News from "./news.jsx";
-export {HamburgerMenu,SearchBar,LeadershipCard,StaffTable,Navbar,AdminNavbar,Hero,Mission,StatsCounter,Latest,News}
+import Glance from "./glance.jsx";
+import Events from "./events.jsx";
+import Partners from "./parteners.jsx";
+import Testimonials from "./testimonials.jsx";
+import Footer from "./footer.jsx";
+export {HamburgerMenu,SearchBar,LeadershipCard,StaffTable,Navbar,AdminNavbar,Hero,Mission,StatsCounter,Latest,News,Glance,Events,Partners,Testimonials,Footer}
