@@ -1,31 +1,20 @@
-import React, { useState } from "react";
-
-import { AboutUs, Facilities, Homepage,Director,Chairman,Registrar,Staff } from "./components/index.js";
-
-
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import { Homepage,AboutUs,Facilities,Administration } from "./pages/index";
+import { Navbar } from "./components/index";
 
 function App() {
   return (
     <>
-      <Homepage />
-      <AboutUs />
-      <Facilities />
-      {/* <div className="container">
-      <h1>Administration</h1>
-      <div className="navbar">
-        <button onClick={() => setSelectedPage("director")}>Director</button>
-        <button onClick={() => setSelectedPage("registrar")}>Registrar</button>
-        <button onClick={() => setSelectedPage("chairman")}>Chairman</button>
-        <button onClick={() => setSelectedPage("staff")}>Staff</button>
-      </div>
-
-      <div className="content">
-        {selectedPage === "director" && <Director />}
-        {selectedPage === "registrar" && <Registrar />}
-        {selectedPage === "chairman" && <Chairman />}
-        {selectedPage === "staff" && <Staff />}
-      </div>
-    </div> */}
+     <Router>
+         {/* <Navbar/> */}
+         <Routes>
+          <Route path="/" element={<Homepage/>} />
+          <Route path="/about" element={<AboutUs/>} />
+          <Route path="/facilites" element={<Facilities/>} />
+          <Route path="/administration" element={<Administration/>} />
+         </Routes>
+     </Router>
+      
     </>
   );
 }

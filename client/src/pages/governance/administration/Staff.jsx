@@ -1,5 +1,5 @@
 import React from "react";
-import StaffTable from "../components/StaffTable";
+import StaffTable from "../../../components/StaffTable";
 
 const Staff = () => {
   return (

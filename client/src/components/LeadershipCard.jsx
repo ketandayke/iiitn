@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles.css"; // Importing global styles
 
 const LeadershipCard = ({ name, title, image, description }) => {
   return (
