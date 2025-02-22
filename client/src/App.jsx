@@ -10,6 +10,10 @@ import {
   Statistics,
   ForCompanies,
   ForStudents,
+  AdminDashboard,
+  ManageHome,
+  // AdminLogin
+
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
 
@@ -35,6 +39,11 @@ function App() {
           <Route path="/placement/Statistics" element={<Statistics />} />
           <Route path="/placement/ForCompanies" element={<ForCompanies />} />
           <Route path="/placement/ForStudents" element={<ForStudents />} />
+          
+           {/* Admin related routes */}
+           {/* <Route path="/admin/login" element={<AdminLogin/>} /> */}
+           <Route path="/admin/Dashboard" element={<AdminDashboard/>} />
+           <Route path="/admin/manage-home" element={<ManageHome/>} />
         </Routes>
       </Router>
     </>

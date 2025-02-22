@@ -12,6 +12,9 @@ import WhyRecruitIIITN from "./placements/Why Recruit from IIITN Nagpur";
 import Statistics from "./placements/statistics";
 import ForCompanies from "./placements/ForCompanies";
 import ForStudents from "./placements/ForStudents";
+// import AdminLogin from "./admin/adminLogin";
+import AdminDashboard from "./admin/adminDashboard";
+import ManageHome from "./admin/manageHome";
 export {
   Homepage,
   Director,
@@ -27,4 +30,9 @@ export {
   Statistics,
   ForCompanies,
   ForStudents,
+  // AdminLogin,
+  AdminDashboard,
+  ManageHome
+  
+
 };

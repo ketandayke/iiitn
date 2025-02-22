@@ -14,4 +14,27 @@ import Events from "./events.jsx";
 import Partners from "./parteners.jsx";
 import Testimonials from "./testimonials.jsx";
 import Footer from "./footer.jsx";
-export {HamburgerMenu,SearchBar,LeadershipCard,StaffTable,Navbar,AdminNavbar,Hero,Mission,StatsCounter,Latest,News,Glance,Events,Partners,Testimonials,Footer}
+import FileGallery from "./fileGallery.jsx";
+import FileUploader from "./fileUploader.jsx";
+import Section from "./section.jsx";
+export {
+    HamburgerMenu,
+    SearchBar,
+    LeadershipCard,
+    StaffTable,
+    Navbar,
+    AdminNavbar,
+    Hero,
+    Mission,
+    StatsCounter,
+    Latest,
+    News,
+    Glance,
+    Events,
+    Partners,
+    Testimonials,
+    Footer,
+    FileGallery,
+    FileUploader,
+    Section
+}
