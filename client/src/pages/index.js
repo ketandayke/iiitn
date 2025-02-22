@@ -14,6 +14,15 @@ import ForCompanies from "./placements/ForCompanies";
 import ForStudents from "./placements/ForStudents";
 import ContactTP from "./placements/ContactTP";
 import Internship from "./placements/Intership";
+import Activities from "./students/activities";
+import Achievements from "./students/achievements";
+import ClinicalCounselling from "./students/clinicalCounselling";
+import Scholarships from "./students/scholarship";
+import Hostel from "./students/hostel";
+import StudentMess from "./students/StudentMess";
+import Download from "./students/downloads";
+import Convocation from "./students/convocation";
+import Fees from "./students/fees";
 export {
   Homepage,
   Director,
@@ -31,4 +40,13 @@ export {
   ForStudents,
   ContactTP,
   Internship,
+  Activities,
+  Achievements,
+  ClinicalCounselling,
+  Scholarships,
+  Hostel,
+  StudentMess,
+  Download,
+  Convocation,
+  Fees,
 };

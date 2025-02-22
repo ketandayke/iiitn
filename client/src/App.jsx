@@ -12,6 +12,15 @@ import {
   ForStudents,
   Internship,
   ContactTP,
+  Activities,
+  Achievements,
+  ClinicalCounselling,
+  Scholarships,
+  Hostel,
+  StudentMess,
+  Download,
+  Convocation,
+  Fees,
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
 // import ContactTP from "./pages/placements/ContactTP.jsx";
@@ -40,6 +49,18 @@ function App() {
           <Route path="/placement/ForStudents" element={<ForStudents />} />
           <Route path="/placement/ContactTP" element={<ContactTP />} />
           <Route path="/placement/Intership" element={<Internship />} />
+          <Route path="/students/activities" element={<Activities />} />
+          <Route path="/students/achievements" element={<Achievements />} />
+          <Route path="/students/Scholarship" element={<Scholarships />} />
+          <Route
+            path="/students/clinicalCounselling"
+            element={<ClinicalCounselling />}
+          />
+          <Route path="/student/hostel" element={<Hostel />} />
+          <Route path="/student/StudentMess" element={<StudentMess />} />
+          <Route path="/student/Download" element={<Download />} />
+          <Route path="/student/convocation" element={<Convocation />} />
+          <Route path="/student/Fees" element={<Fees />} />
         </Routes>
       </Router>
     </>
