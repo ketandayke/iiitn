@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="w-full h-24 md:px-12 grade1 fixed top-0 z-50 overflow-hidden"> 
         <div className="max-w-[90%] h-24 flex justify-between items-center mx-auto overflow-hidden">
           {/* Hamburger Menu */}
-          <HamburgerMenu className="absolute top-7  w-[2.5rem] h-10 xl:w-[3.5rem] xl:h-12 cursor-pointer" />
+          <HamburgerMenu className="absolute top-7  w-[2.5rem] h-10 xl:w-[3rem] xl:h-10 cursor-pointer" />
 
           {/* Logo & Text */}
           <div className="flex items-center gap-2 px-2 overflow-hidden">
