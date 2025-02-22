@@ -5,15 +5,16 @@ import {
   Facilities,
   Administration,
   Admissions,
-  PlacementAboutUs,
   WhyRecruitIIITN,
+  PlacementAboutUs,
   Statistics,
   ForCompanies,
   ForStudents,
   Internship,
+  ContactTP,
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
-import ContactTP from "./pages/placements/ContactTP.jsx";
+// import ContactTP from "./pages/placements/ContactTP.jsx";
 
 function App() {
   return (

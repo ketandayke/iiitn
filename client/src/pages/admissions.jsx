@@ -60,7 +60,7 @@ export default function Admissions() {
       {/* Thumbnail Image */}
       <div className="flex justify-center mb-10">
         <img
-          src=""
+          src="../../../images/admissions.JPG"
           alt="Admissions Thumbnail"
           className="w-full max-w-6xl h-auto rounded-lg shadow-xl"
         />
