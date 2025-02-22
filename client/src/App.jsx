@@ -5,8 +5,8 @@ import {
   Facilities,
   Administration,
   Admissions,
-  PlacementAboutUs,
   WhyRecruitIIITN,
+  PlacementAboutUs,
   Statistics,
   ForCompanies,
   ForStudents,
@@ -14,8 +14,20 @@ import {
   ManageHome,
   // AdminLogin
 
+  Internship,
+  ContactTP,
+  Activities,
+  Achievements,
+  ClinicalCounselling,
+  Scholarships,
+  Hostel,
+  StudentMess,
+  Download,
+  Convocation,
+  Fees,
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
+// import ContactTP from "./pages/placements/ContactTP.jsx";
 
 function App() {
   return (
@@ -44,6 +56,20 @@ function App() {
            {/* <Route path="/admin/login" element={<AdminLogin/>} /> */}
            <Route path="/admin/Dashboard" element={<AdminDashboard/>} />
            <Route path="/admin/manage-home" element={<ManageHome/>} />
+          <Route path="/placement/ContactTP" element={<ContactTP />} />
+          <Route path="/placement/Intership" element={<Internship />} />
+          <Route path="/students/activities" element={<Activities />} />
+          <Route path="/students/achievements" element={<Achievements />} />
+          <Route path="/students/Scholarship" element={<Scholarships />} />
+          <Route
+            path="/students/clinicalCounselling"
+            element={<ClinicalCounselling />}
+          />
+          <Route path="/student/hostel" element={<Hostel />} />
+          <Route path="/student/StudentMess" element={<StudentMess />} />
+          <Route path="/student/Download" element={<Download />} />
+          <Route path="/student/convocation" element={<Convocation />} />
+          <Route path="/student/Fees" element={<Fees />} />
         </Routes>
       </Router>
     </>
