@@ -1,0 +1,182 @@
+/* General Styles */
+body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+/* Menu Icon */
+.menu-icon {
+  font-size: 2em;
+  padding: 10px 15px;
+  width: 80px;
+  border: 2px solid rgb(23, 108, 255);
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: rgb(23, 108, 255);
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px rgba(23, 108, 255, 0.5);
+}
+
+/* Menu */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100vw; /* Initially hidden */
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  transition: left 0.5s ease-in-out;
+}
+
+.menu-open {
+  left: 0; /* Slide in */
+}
+
+/* Close Button */
+.close-button {
+  font-size: 1.5em;
+  background: none;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 40%;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.close-button:hover {
+  transform: rotate(90deg);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Menu Container */
+.menu-container {
+  display: flex;
+  color: #000000;
+  width: 100%;
+}
+
+/* Menu Content (Sidebar) */
+.menu-content {
+  width: 25%;
+  padding: 40px;
+  background-color: #ffffff;
+  border-right: 1px solid #000000;
+  overflow-y: auto;
+}
+
+.menu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-content li {
+  font-size: 1.5em;
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-content li:hover,
+.menu-content li.active {
+  background-color: rgb(107, 152, 232);
+  transition: background-color 0.3s ease;
+}
+
+/* Menu Details */
+.menu-details {
+  width: 60%;
+  padding: 40px;
+  color: rgb(0, 0, 0);
+  overflow-y: auto;
+  opacity: 1;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.menu-details h2 {
+  margin-top: 0;
+  font-size: 2em;
+  border-bottom: 1px solid #333;
+}
+
+.menu-details p {
+  font-size: 1.2em;
+  
+}
+
+/* Fade in details when active */
+.menu-details.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nested Menu */
+.nested-menu {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  
+}
+
+/* Nested Items */
+.nested-item {
+  padding: 5px 0;
+  font-size: 1.1em;
+  
+  padding-bottom: 1%;
+  color: rgb(0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.nested-item span{
+  font-size: 1.2em;
+  padding: 5px;
+  color: rgb(74, 74, 74);
+  background-color: rgb(255, 213, 99);
+}
+
+/* Nested Item Links */
+.nested-item-link {
+  padding-bottom: 10px;
+  color: rgb(43, 42, 42);
+  text-decoration: none;
+  font-size: 1.1em;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.nested-item-link:hover {
+  text-decoration: underline;
+  color: rgb(23, 108, 255);
+}
+
+/* Nested Submenu Expansion */
+.nested-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.menu-item-expanded .nested-content {
+  max-height: 500px; /* Large enough for smooth expansion */
+  opacity: 1;
+}
