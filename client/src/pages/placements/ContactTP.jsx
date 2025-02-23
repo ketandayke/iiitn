@@ -7,6 +7,14 @@ export default function ContactTNP() {
         Training & Placement
       </h1>
 
+      <div className="flex justify-center mb-10">
+        <img
+          src="../../../images/ThumbnailImage.jpg"
+          alt="Placement Office"
+          className="w-full max-w-6xl h-auto rounded-lg shadow-xl"
+        />
+      </div>
+
       <div className="grid md:grid-cols-3 gap-10">
         {/* Dr. Paritosh Peshwe */}
         <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">

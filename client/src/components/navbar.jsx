@@ -5,10 +5,9 @@
 // export default function Navbar() {
 //   return (
 //     <>
-//       <div className="w-full h-24 md:px-12 grade1 fixed top-0 z-50"> 
+//       <div className="w-full h-24 md:px-12 grade1 fixed top-0 z-50">
 //         <div className="max-w-[90%] h-24 flex justify-between items-center mx-auto">
-//              <HamburgerMenu className="absolute top-7 w-[3rem] h-10 xl:w-[3.5rem] xl:h-12 cursor-pointer" /> 
-
+//              <HamburgerMenu className="absolute top-7 w-[3rem] h-10 xl:w-[3.5rem] xl:h-12 cursor-pointer" />
 
 //           <div className="flex items-center gap-2 px-2">
 //             <img
@@ -39,14 +38,14 @@
 //   );
 // }
 
-import React from 'react';
-import { HamburgerMenu } from './index';
-import { SearchBar } from './index';
+import React from "react";
+import { HamburgerMenu } from "./index";
+import { SearchBar } from "./index";
 
 export default function Navbar() {
   return (
     <>
-      <div className="w-full h-24 md:px-12 grade1 fixed top-0 z-50 overflow-hidden"> 
+      <div className="w-full h-24 md:px-12 grade1 fixed top-0 z-50 overflow-hidden">
         <div className="max-w-[90%] h-24 flex justify-between items-center mx-auto overflow-hidden">
           {/* Hamburger Menu */}
           <HamburgerMenu className="absolute top-7  w-[2.5rem] h-10 xl:w-[3rem] xl:h-10 cursor-pointer" />
@@ -72,8 +71,8 @@ export default function Navbar() {
           </div>
 
           {/* Search Bar */}
-          <div className="flex items-center justify-center overflow-hidden">
-            <SearchBar className="lg:w-16 max-w-[200px]" />
+          <div>
+            <SearchBar />
           </div>
         </div>
       </div>

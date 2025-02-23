@@ -7,6 +7,14 @@ export default function Internship() {
         Internship
       </h1>
 
+      <div className="flex justify-center mb-10">
+        <img
+          src="../../../images/ThumbnailImage.jpg"
+          alt="Placement Office"
+          className="w-full max-w-6xl h-auto rounded-lg shadow-xl"
+        />
+      </div>
+
       {/* A4 Images Section (Vertical Layout) */}
       <div className="flex flex-col items-center gap-6 mb-10">
         <img

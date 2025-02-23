@@ -33,6 +33,7 @@ import OfficialDoc from "./others/officialDoc";
 import ElectoralLiteracyClub from "./others/electrolLC";
 import GuestHouse from "./others/guestHouse";
 import PressRelease from "./others/pressRelase";
+//import SearchBar from "../components/index";
 export {
   Homepage,
   Director,
@@ -51,8 +52,6 @@ export {
   // AdminLogin,
   AdminDashboard,
   ManageHome,
-  
-
   ContactTP,
   Internship,
   Activities,
@@ -71,4 +70,5 @@ export {
   ElectoralLiteracyClub,
   GuestHouse,
   PressRelease,
+  //SearchBar,
 };

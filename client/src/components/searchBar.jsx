@@ -1,85 +1,200 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Search, X } from "lucide-react"; // Using Lucide icons
+import { Search, X } from "lucide-react"; // Lucide icons
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar({ className = "" }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const modalRef = useRef(null);
+  const navigate = useNavigate();
 
-  const options = ["Home", "About", "Courses", "Faculty", "Contact", "Events"];
-  const filteredOptions = options.filter((option) =>
-    option.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Facilities", path: "/facilities" },
+    { name: "Administration", path: "/administration" },
+    { name: "Admissions", path: "/admissions" },
+    { name: "Placement About Us", path: "/placement/about" },
+    { name: "Why Recruit IIITN?", path: "/placement/why-recruit-iiitn" },
+    { name: "Placement Statistics", path: "/placement/statistics" },
+    { name: "For Companies", path: "/placement/for-companies" },
+    { name: "For Students", path: "/placement/for-students" },
+    { name: "Contact TnP", path: "/placement/contact-tp" },
+    { name: "Internship", path: "/placement/internship" },
+    { name: "Student Activities", path: "/students/activities" },
+    { name: "Student Achievements", path: "/students/achievements" },
+    { name: "Scholarships", path: "/students/scholarships" },
+    { name: "Clinical Counselling", path: "/students/clinical-counselling" },
+    { name: "Hostel", path: "/students/hostel" },
+    { name: "Student Mess", path: "/students/mess" },
+    { name: "Downloads", path: "/students/download" },
+    { name: "Convocation", path: "/students/convocation" },
+    { name: "Fees", path: "/students/fees" },
+    { name: "NIRF", path: "/nirf" },
+    { name: "Consultancy", path: "/others/consultancy" },
+    { name: "Institution Innovation Council", path: "/others/iic" },
+    { name: "Official Documents", path: "/others/official-doc" },
+    { name: "Electoral Literacy Club", path: "/others/electoral-doc" },
+    { name: "Guest House", path: "/others/guest-house" },
+    { name: "Press Release", path: "/others/press-release" },
+  ];
 
+  const filteredPages = searchTerm
+    ? pages.filter((page) =>
+        page.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
+
+  // ✅ Close search modal when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
         setIsOpen(false);
+        setSearchTerm("");
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  return (
-    <div className={`relative  ${className}`} ref={dropdownRef}>
-      {/* Search Icon */}
-      {!isOpen && (
-        <button
-          className="p-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300 focus:outline-none"
-          onClick={() => setIsOpen(true)}
-        >
-          <Search size={24} />
-        </button>
-      )}
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsOpen(false);
+    setSearchTerm("");
+  };
 
-      {/* Search Input */}
+  return (
+    <div className={`relative ${className}`}>
+      {/* Search Icon */}
+      <button
+        onClick={() => setIsOpen(true)}
+        style={{
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          padding: "8px",
+        }}
+      >
+        <Search size={28} color="#333" />
+      </button>
+
+      {/* Full-Screen Search Modal */}
       {isOpen && (
         <div
-          className={`fixed top-0 left-0 z-50 flex items-center p-4 bg-white border-b border-gray-300 shadow-lg 
-                      w-full h-24 transition-all`}
+          style={{
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
         >
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full p-3 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              autoFocus
-            />
-            <button
-              className="absolute right-2 top-2 p-2 text-gray-500 hover:text-gray-700"
-              onClick={() => {
-                setSearchTerm("");
-                setIsOpen(false);
-              }}
-            >
-              <X size={24} />
-            </button>
-          </div>
-        </div>
-      )}
+          <div
+            ref={modalRef} // ✅ Now the whole box is covered
+            style={{
+              width: "90%",
+              maxWidth: "500px",
+              background: "linear-gradient(to right, #6a85b6, #bac8e0)",
+              padding: "15px",
+              borderRadius: "10px",
+              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+              position: "relative",
+            }}
+          >
+            {/* Search Input Box */}
+            <div style={{ position: "relative" }}>
+              <input
+                type="text"
+                placeholder="Search for pages..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  fontSize: "18px",
+                  border: "none",
+                  borderRadius: "5px",
+                  outline: "none",
+                  background: "rgba(255, 255, 255, 0.2)",
+                  color: "white",
+                  paddingRight: "40px", // Space for close button
+                }}
+                autoFocus
+              />
 
-      {/* Dropdown Results */}
-      {isOpen && searchTerm && (
-        <div className="absolute left-0 mt-1 w-full md:w-64 bg-white border border-gray-300 rounded-md shadow-lg z-50">
-          {filteredOptions.length > 0 ? (
-            filteredOptions.map((option, index) => (
-              <div
-                key={index}
-                className="cursor-pointer p-2 hover:bg-gray-200"
+              {/* Close Button (Centered Inside Box) */}
+              <button
                 onClick={() => {
-                  setSearchTerm(option);
+                  setSearchTerm("");
                   setIsOpen(false);
                 }}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  right: "10px",
+                  transform: "translateY(-50%)",
+                  background: "rgba(0, 0, 0, 0.6)",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "50%",
+                  padding: "5px",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                {option}
-              </div>
-            ))
-          ) : (
-            <div className="p-2 text-gray-500">No results found</div>
-          )}
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Search Results */}
+            <div
+              style={{
+                marginTop: "10px",
+                maxHeight: "300px",
+                overflowY: "auto",
+              }}
+            >
+              {filteredPages.length > 0 ? (
+                filteredPages.map((page, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      cursor: "pointer",
+                      padding: "10px",
+                      background: "rgba(255, 255, 255, 0.2)",
+                      borderRadius: "5px",
+                      marginBottom: "5px",
+                      color: "white",
+                      textAlign: "center",
+                      fontSize: "16px",
+                      transition: "background 0.2s",
+                    }}
+                    onClick={() => handleNavigation(page.path)}
+                  >
+                    {page.name}
+                  </div>
+                ))
+              ) : (
+                <div
+                  style={{
+                    color: "white",
+                    textAlign: "center",
+                    fontSize: "16px",
+                    padding: "10px",
+                  }}
+                >
+                  No results found
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>

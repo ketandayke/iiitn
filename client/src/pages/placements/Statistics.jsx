@@ -45,8 +45,14 @@ export default function Statistics() {
       <h1 className="text-center text-5xl font-bold text-blue-700 mb-10">
         Placement Statistics
       </h1>
-
-      {/* Graph Section */}
+      <div className="flex justify-center mb-10">
+        <img
+          src="../../../images/ThumbnailImage.jpg"
+          alt="Placement Office"
+          className="w-full max-w-6xl h-auto rounded-lg shadow-xl"
+        />
+      </div>
+      ;{/* Graph Section */}
       <div className="bg-white p-6 rounded-xl shadow-xl mb-10">
         <h2 className="text-2xl font-semibold text-gray-800">
           Placement Trends
@@ -71,7 +77,6 @@ export default function Statistics() {
           </BarChart>
         </ResponsiveContainer>
       </div>
-
       {/* Table Section */}
       <div className="bg-white p-6 rounded-xl shadow-xl">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
@@ -100,7 +105,6 @@ export default function Statistics() {
           </tbody>
         </table>
       </div>
-
       {/* Companies Section */}
       <div className="mt-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
