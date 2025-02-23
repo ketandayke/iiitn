@@ -10,6 +10,10 @@ import {
   Statistics,
   ForCompanies,
   ForStudents,
+  AdminDashboard,
+  ManageHome,
+  // AdminLogin
+
   Internship,
   ContactTP,
   Activities,
@@ -54,6 +58,11 @@ function App() {
           <Route path="/placement/Statistics" element={<Statistics />} />
           <Route path="/placement/ForCompanies" element={<ForCompanies />} />
           <Route path="/placement/ForStudents" element={<ForStudents />} />
+          
+           {/* Admin related routes */}
+           {/* <Route path="/admin/login" element={<AdminLogin/>} /> */}
+           <Route path="/admin/Dashboard" element={<AdminDashboard/>} />
+           <Route path="/admin/manage-home" element={<ManageHome/>} />
           <Route path="/placement/ContactTP" element={<ContactTP />} />
           <Route path="/placement/Intership" element={<Internship />} />
           <Route path="/students/activities" element={<Activities />} />

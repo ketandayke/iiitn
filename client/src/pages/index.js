@@ -12,6 +12,9 @@ import WhyRecruitIIITN from "./placements/Why Recruit from IIITN Nagpur";
 import Statistics from "./placements/statistics";
 import ForCompanies from "./placements/ForCompanies";
 import ForStudents from "./placements/ForStudents";
+// import AdminLogin from "./admin/adminLogin";
+import AdminDashboard from "./admin/adminDashboard";
+import ManageHome from "./admin/manageHome";
 import ContactTP from "./placements/ContactTP";
 import Internship from "./placements/Intership";
 import Activities from "./students/activities";
@@ -45,6 +48,11 @@ export {
   Statistics,
   ForCompanies,
   ForStudents,
+  // AdminLogin,
+  AdminDashboard,
+  ManageHome,
+  
+
   ContactTP,
   Internship,
   Activities,
