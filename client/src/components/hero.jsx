@@ -1,11 +1,7 @@
-import React from 'react'
+// components/Hero.jsx
+import React from 'react';
+ const Hero = ({ data }) => (
+    <div className="w-full background bg-fixed mt-[6rem]" style={{ height: "calc(100vh - 6rem)", backgroundImage: `url(${data?.image || ''})`, backgroundSize: "cover", backgroundPosition: "center" }}></div>
+);
 
-export default function Hero() {
-  return (
-    <div className="w-[100%] background bg-fixed mt-[6rem]"
-        style={{"height":"calc(100vh - 6rem)"}}
-    >
-  
-    </div>
-  )
-}
+export default Hero;

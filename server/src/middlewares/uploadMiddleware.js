@@ -5,12 +5,12 @@ import multer from "multer"
 const storage = new CloudinaryStorage({
     cloudinary:cloudinary,
     params:async(req,file)=>{
-        const folder=file.mimetype ==="application/json"?pdfs:images;
+        const folder=file.mimetype ==="application/json"?"pdfs":"images";
         return{
             folder:folder,
             resource_type:file.mimetype==="application/json"?"raw":"image",
             format:file.mimetype==="application/json"?"pdf":"webp",
-            public_id:`${Date.now}-${file.originalName.split(" ").join("-")}`
+            public_id:`${Date.now}-${file.originalname.split(" ").join("-")}`
         
         }
     }

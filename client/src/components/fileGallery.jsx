@@ -1,13 +1,13 @@
 // components/FileGallery.jsx
 
 import React from "react";
-import axios from "axios";
+import api from "../utils/axiosInstance";
 import toast from "react-hot-toast";
 
 const FileGallery = ({ alias, sectionName, files, onDeleteSuccess, onSelectSuccess }) => {
     const handleDelete = async (contentId) => {
         try {
-            await axios.delete(`/api/v1/admin/page/${alias}/${sectionName}/delete/${contentId}`);
+            await api.delete(`/admin/page/${alias}/${sectionName}/delete/${contentId}`);
             toast.success("File deleted successfully");
             onDeleteSuccess(contentId);
         } catch (error) {
@@ -17,7 +17,7 @@ const FileGallery = ({ alias, sectionName, files, onDeleteSuccess, onSelectSucce
 
     const handleSelect = async (contentId) => {
         try {
-            await axios.put(`/api/v1/admin/page/${alias}/${sectionName}/select/${contentId}`);
+            await api.put(`/admin/page/${alias}/${sectionName}/select/${contentId}`);
             toast.success("Content selected successfully");
             onSelectSuccess(contentId);
         } catch (error) {

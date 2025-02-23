@@ -10,10 +10,6 @@ import {
   Statistics,
   ForCompanies,
   ForStudents,
-  AdminDashboard,
-  ManageHome,
-  // AdminLogin
-
   Internship,
   ContactTP,
   Activities,
@@ -25,6 +21,10 @@ import {
   Download,
   Convocation,
   Fees,
+  AdminDashboard,
+  ManageHome,
+  ManageLatest
+  // AdminLogin
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
 // import ContactTP from "./pages/placements/ContactTP.jsx";
@@ -51,13 +51,11 @@ function App() {
           <Route path="/placement/Statistics" element={<Statistics />} />
           <Route path="/placement/ForCompanies" element={<ForCompanies />} />
           <Route path="/placement/ForStudents" element={<ForStudents />} />
-          
-           {/* Admin related routes */}
-           {/* <Route path="/admin/login" element={<AdminLogin/>} /> */}
-           <Route path="/admin/Dashboard" element={<AdminDashboard/>} />
-           <Route path="/admin/manage-home" element={<ManageHome/>} />
+        
           <Route path="/placement/ContactTP" element={<ContactTP />} />
           <Route path="/placement/Intership" element={<Internship />} />
+
+          {/* Routes for Students */}
           <Route path="/students/activities" element={<Activities />} />
           <Route path="/students/achievements" element={<Achievements />} />
           <Route path="/students/Scholarship" element={<Scholarships />} />
@@ -70,6 +68,15 @@ function App() {
           <Route path="/student/Download" element={<Download />} />
           <Route path="/student/convocation" element={<Convocation />} />
           <Route path="/student/Fees" element={<Fees />} />
+
+
+
+           {/* Routes fir Admin Controll */}
+           {/* Admin related routes */}
+           {/* <Route path="/admin/login" element={<AdminLogin/>} /> */}
+           <Route path="/admin/Dashboard" element={<AdminDashboard/>} />
+           <Route path="/admin/manage-home" element={<ManageHome/>} />
+           <Route path="/admin/manage-latest" element={<ManageLatest/>} />
         </Routes>
       </Router>
     </>
