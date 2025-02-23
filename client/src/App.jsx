@@ -21,6 +21,13 @@ import {
   Download,
   Convocation,
   Fees,
+  NIRF,
+  Consultancy,
+  InstitutionInnovationCouncil,
+  OfficialDoc,
+  ElectoralLiteracyClub,
+  GuestHouse,
+  PressRelease,
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
 // import ContactTP from "./pages/placements/ContactTP.jsx";
@@ -61,6 +68,19 @@ function App() {
           <Route path="/student/Download" element={<Download />} />
           <Route path="/student/convocation" element={<Convocation />} />
           <Route path="/student/Fees" element={<Fees />} />
+          <Route path="/nirf" element={<NIRF />} />
+          <Route path="/others/consultancy" element={<Consultancy />} />
+          <Route
+            path="/others/IIC"
+            element={<InstitutionInnovationCouncil />}
+          />
+          <Route path="/others/officialDoc" element={<OfficialDoc />} />
+          <Route
+            path="/others/electrolDoc"
+            element={<ElectoralLiteracyClub />}
+          />
+          <Route path="/others/guestHouse" element={<GuestHouse />} />
+          <Route path="/others/pressRelase" element={<PressRelease />} />
         </Routes>
       </Router>
     </>

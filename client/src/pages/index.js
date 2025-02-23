@@ -23,6 +23,13 @@ import StudentMess from "./students/StudentMess";
 import Download from "./students/downloads";
 import Convocation from "./students/convocation";
 import Fees from "./students/fees";
+import NIRF from "./nirf";
+import Consultancy from "./others/consultancy";
+import InstitutionInnovationCouncil from "./others/IIC";
+import OfficialDoc from "./others/officialDoc";
+import ElectoralLiteracyClub from "./others/electrolLC";
+import GuestHouse from "./others/guestHouse";
+import PressRelease from "./others/pressRelase";
 export {
   Homepage,
   Director,
@@ -49,4 +56,11 @@ export {
   Download,
   Convocation,
   Fees,
+  NIRF,
+  Consultancy,
+  InstitutionInnovationCouncil,
+  OfficialDoc,
+  ElectoralLiteracyClub,
+  GuestHouse,
+  PressRelease,
 };
