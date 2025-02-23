@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const partners = [
-  { id: 1, name: 'Shiksha Mantralay', image: 'Shikshamantralay.jpg' },
-  { id: 2, name: 'Maharashtra Shasan', image: 'MaharashtraShasan.jpg' },
-  { id: 3, name: 'TCS', image: 'TCS.jpg' }
+  { id: 1, name: "Shiksha Mantralay", image: "../images/moe.jpg" },
+  { id: 2, name: "Maharashtra Shasan", image: "../images/gom.png" },
+  { id: 3, name: "TCS", image: "../images/tcs.jpg" },
 ];
 
 export default function Partners() {
@@ -23,7 +23,9 @@ export default function Partners() {
               className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-              <span className="text-white font-bold text-lg">{partner.name}</span>
+              <span className="text-white font-bold text-lg">
+                {partner.name}
+              </span>
             </div>
           </div>
         ))}

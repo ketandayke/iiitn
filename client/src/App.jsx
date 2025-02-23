@@ -30,6 +30,7 @@ import {
   ElectoralLiteracyClub,
   GuestHouse,
   PressRelease,
+  LatestUpdates,
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
 
@@ -85,6 +86,7 @@ function App() {
           />
           <Route path="/others/guest-house" element={<GuestHouse />} />
           <Route path="/others/press-release" element={<PressRelease />} />
+          <Route path="/latest" element={<LatestUpdates />} />
         </Routes>
       </Router>
     </>

@@ -33,7 +33,7 @@ import OfficialDoc from "./others/officialDoc";
 import ElectoralLiteracyClub from "./others/electrolLC";
 import GuestHouse from "./others/guestHouse";
 import PressRelease from "./others/pressRelase";
-//import SearchBar from "../components/index";
+import LatestUpdates from "./latestUpdates";
 export {
   Homepage,
   Director,
@@ -70,5 +70,5 @@ export {
   ElectoralLiteracyClub,
   GuestHouse,
   PressRelease,
-  //SearchBar,
+  LatestUpdates,
 };

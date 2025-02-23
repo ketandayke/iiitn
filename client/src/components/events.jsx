@@ -1,10 +1,28 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const eventItems = [
-  { id: 1, title: 'TechFest 2025', date: 'March 10, 2025', image: 'techfest.jpg', link: '/events/techfest' },
-  { id: 2, title: 'Hackathon 2025', date: 'April 5, 2025', image: 'hackathon.jpg', link: '/events/hackathon' },
-  { id: 3, title: 'Cultural Night', date: 'April 20, 2025', image: 'cultural.jpg', link: '/events/cultural' }
+  {
+    id: 1,
+
+    date: "TechFest 2025",
+    image: "../images/tech.png",
+    link: "/events/techfest",
+  },
+  {
+    id: 2,
+
+    date: "Hackathon 2025",
+    image: "../images/haca.png",
+    link: "/events/hackathon",
+  },
+  {
+    id: 3,
+
+    date: "Cultural Night",
+    image: "../images/cul.JPG",
+    link: "/events/cultural",
+  },
 ];
 
 export default function Events() {
@@ -12,7 +30,9 @@ export default function Events() {
 
   return (
     <div className="w-[90%] mx-auto py-16">
-      <h2 className="text-4xl font-bold text-center mb-8">📅 UPCOMING EVENTS</h2>
+      <h2 className="text-4xl font-bold text-center mb-8">
+        📅 UPCOMING EVENTS
+      </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {eventItems.map((item) => (
@@ -26,8 +46,10 @@ export default function Events() {
               alt={item.title}
               className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
+            <div className="absolute inset-0 bg-opacity-40 flex items-center justify-center">
+              <h3 className="text-black text-lg font-semibold text-center">
+                {item.title}
+              </h3>
             </div>
             <div className="absolute bottom-0 left-0 w-full bg-green-500 text-white p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <span className="block text-center font-bold">{item.date}</span>
