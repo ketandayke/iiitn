@@ -1,26 +1,100 @@
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
 
-.background{
-    background-image: url('../../public/images/hero.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.navbar {
+  margin: 20px 0;
+}
+
+.navbar button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.navbar button:hover {
+  background: #0056b3;
+}
+
+.page {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+td a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+.background {
+  background-image: url("../../images/admin.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top:1rem;
-    position: absolute;
-  }
-  
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top:1rem;
-    position: absolute;
-  }
-  .hamburger:hover{
-    border:2px solid white
-  }
+  transform: rotate(45deg);
+  top: 1.2rem;
+  position: absolute;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 1.2rem;
+  position: absolute;
+}
+.hamburger:hover {
+  border: 2px solid white;
+}
+.grade1{
+  background-color: #42a7f5;
+  background-image: linear-gradient(#2706a9 1%,#90c0e5 25%,#abd3f1 50%,#b0d4ef 75%,#e2edef 100%);
+}
