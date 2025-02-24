@@ -6,7 +6,7 @@ export default function Admissions() {
   const content = {
     1: (
       <>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-800  mb-4">
           B. Tech. Admission (CSE/ECE) 2024-25:
         </h2>
         <p className="text-blue-600 font-bold">For Admission Page Click Here</p>
@@ -53,7 +53,7 @@ export default function Admissions() {
   return (
     <div className="bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen p-10">
       {/* Title */}
-      <h1 className="text-center text-5xl font-poetsen text-gray-800 mb-10">
+      <h1 className="text-center text-5xl font-poetsen text-gray-800 mt-25 mb-10">
         ADMISSIONS
       </h1>
 

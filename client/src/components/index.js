@@ -18,6 +18,7 @@ import FileGallery from "./fileGallery.jsx";
 import FileUploader from "./fileUploader.jsx";
 import Section from "./section.jsx";
 import SearchBar from "./searchBar";
+
 export {
   HamburgerMenu,
   LeadershipCard,

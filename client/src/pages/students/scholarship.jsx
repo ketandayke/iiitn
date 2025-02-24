@@ -3,7 +3,7 @@ import React from "react";
 export default function Scholarships() {
   return (
     <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-center text-5xl font-bold text-blue-700 mb-10">
+      <h1 className="text-center text-5xl font-bold text-blue-700 mt-25 mb-10">
         Scholarships
       </h1>
 

@@ -4,7 +4,7 @@ export default function PlacementAboutUs() {
   return (
     <div className="bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen p-10">
       {/* Title */}
-      <h1 className="text-center text-5xl font-bold text-gray-800 mb-10">
+      <h1 className="text-center text-5xl font-bold text-gray-800 mt-25 mb-10">
         ABOUT US
       </h1>
 

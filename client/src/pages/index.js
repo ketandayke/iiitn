@@ -34,6 +34,8 @@ import ElectoralLiteracyClub from "./others/electrolLC";
 import GuestHouse from "./others/guestHouse";
 import PressRelease from "./others/pressRelase";
 import LatestUpdates from "./latestUpdates";
+import Committee from "./committee";
+import ReviewForm from "./review";
 export {
   Homepage,
   Director,
@@ -71,4 +73,6 @@ export {
   GuestHouse,
   PressRelease,
   LatestUpdates,
+  Committee,
+  ReviewForm,
 };

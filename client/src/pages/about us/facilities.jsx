@@ -16,7 +16,7 @@ export default function Facilities() {
   return (
     <div className="bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen p-10">
       {/* Title */}
-      <h1 className="text-center text-5xl font-poetsen text-gray-900 mb-10">
+      <h1 className="text-center text-5xl font-poetsen text-gray-900 mt-25 mb-10">
         FACILITIES
       </h1>
 

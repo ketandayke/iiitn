@@ -4,7 +4,7 @@ export default function WhyRecruitIIITN() {
   return (
     <div className="bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen px-16 py-20">
       {/* Title */}
-      <h1 className="text-center text-6xl font-bold text-gray-800 mb-20">
+      <h1 className="text-center text-6xl font-bold text-gray-800 mt-25 mb-20">
         WHY RECRUIT FROM IIITN NAGPUR?
       </h1>
 
