@@ -8,13 +8,9 @@ const contentSchema = new Schema({
     value:{
         type:mongoose.Schema.Types.Mixed,
     },
-    isHero:{
-        type:Boolean,
-     default :false 
-    },
     isVisible:{
         type:Boolean,
-        default:true,
+        default:false,
     },
     heading:{
         type:String,

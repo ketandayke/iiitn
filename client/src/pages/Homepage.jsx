@@ -1,116 +1,56 @@
-// pages/Homepage.jsx
-
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../utils/axiosInstance";
 import { Hero, Mission, Latest, News, Glance, Events, Testimonials, Footer } from "../components";
 
 export default function Homepage() {
-    // State for Each Section
     const [heroData, setHeroData] = useState([]);
     const [missionData, setMissionData] = useState([]);
-    const [latestData, setLatestData] = useState([]);
-    const [newsData, setNewsData] = useState([]);
-    const [eventsData, setEventsData] = useState([]);
+    const [counterData, setCounterData] = useState([]);
+    const [latestSections, setLatestSections] = useState([]);
+    const [glanceData, setGlanceData] = useState([]);
     const [testimonialsData, setTestimonialsData] = useState([]);
 
-    // Refs for Lazy Loading
-    const latestRef = useRef(null);
-    const newsRef = useRef(null);
-    const eventsRef = useRef(null);
-    const testimonialsRef = useRef(null);
-
-    // Fetch Hero and Mission at Initial Load
+    // 🌱 **Initial Fetch for All Data**
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const [heroResponse, missionResponse] = await Promise.all([
-                    api.get("/home/hero"),
-                    api.get("/home/mission")
+                const [heroResponse, missionResponse, counterResponse, glanceResponse, latestResponse] = await Promise.all([
+                    api.get("/admin/page/home/hero"),
+                    api.get("/admin/page/home/mission"),
+                    api.get("/admin/page/home/counters"),
+                    api.get("/admin/page/home/iiitn-at-a-glance"),
+                    api.get("/page/home/latest") // Single call for all latest sections
                 ]);
-                setHeroData(heroResponse.data.data);
-                setMissionData(missionResponse.data.data);
+
+                setHeroData(heroResponse.data.data.content || []);
+                setMissionData(missionResponse.data.data.content || []);
+                setCounterData(counterResponse.data.data.content || []);
+                setGlanceData(glanceResponse.data.data.content || []);
+                setLatestSections(latestResponse.data.data || []); // Store all latest sections
             } catch (error) {
-                console.error("Error fetching Hero or Mission:", error);
+                console.error("Error fetching initial data:", error);
             }
         };
         fetchInitialData();
     }, []);
 
-    // Intersection Observer Hook for Lazy Loading
-    const useLazyLoad = (ref, fetchFunction) => {
-        useEffect(() => {
-            const observer = new IntersectionObserver(([entry]) => {
-                if (entry.isIntersecting) {
-                    fetchFunction();
-                    observer.disconnect(); // Disconnect after loading once
-                }
-            }, { threshold: 0.5 }); // Load when 50% of the section is visible
-
-            if (ref.current) observer.observe(ref.current);
-
-            return () => {
-                if (ref.current) observer.disconnect();
-            };
-        }, [ref, fetchFunction]);
+    // ✅ **Helper to Extract Section Data**  
+    const getSectionData = (sectionType) => {
+        const section = latestSections.find(section => section.sectionType === sectionType);
+        return section ? section.content.slice(0, 3) : []; // Show only 3 items
     };
 
-    // Lazy Load Latest Section
-    useLazyLoad(latestRef, async () => {
-        try {
-            const response = await api.get("/home/latest");
-            setLatestData(response.data.data);
-        } catch (error) {
-            console.error("Error fetching Latest:", error);
-        }
-    });
-
-    // Lazy Load News Section
-    useLazyLoad(newsRef, async () => {
-        try {
-            const response = await api.get("/home/news");
-            setNewsData(response.data.data);
-        } catch (error) {
-            console.error("Error fetching News:", error);
-        }
-    });
-
-    // Lazy Load Events Section
-    useLazyLoad(eventsRef, async () => {
-        try {
-            const response = await api.get("/home/events");
-            setEventsData(response.data.data);
-        } catch (error) {
-            console.error("Error fetching Events:", error);
-        }
-    });
-
-    // Lazy Load Testimonials Section
-    useLazyLoad(testimonialsRef, async () => {
-        try {
-            const response = await api.get("/home/testimonials");
-            setTestimonialsData(response.data.data);
-        } catch (error) {
-            console.error("Error fetching Testimonials:", error);
-        }
-    });
-
+    // ✅ **Render Components**
     return (
         <>
             <Hero data={heroData} />
-            <Mission data={missionData} />
-            <div ref={latestRef}>
-                <Latest data={latestData} />
-            </div>
-            <div ref={newsRef}>
-                <News data={newsData} />
-            </div>
-            <Glance />
-            <div ref={eventsRef}>
-                <Events data={eventsData} />
-            </div>
-            <div ref={testimonialsRef}>
-                <Testimonials data={testimonialsData} />
-            </div>
+            <Mission data={missionData} counterData={counterData} />
+            <Latest data={getSectionData("notices")} sectionType="notices" />
+            <Latest data={getSectionData("achievements")} sectionType="achievements" />
+            <News data={getSectionData("news")} />
+            <Glance data={glanceData} />
+            <Events data={getSectionData("events")} />
+            {/* <Testimonials data={testimonialsData} /> */}
             <Footer />
         </>
     );

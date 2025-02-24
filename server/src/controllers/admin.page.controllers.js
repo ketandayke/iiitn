@@ -32,20 +32,23 @@ const getPage = asyncHandler(async(req,res,next)=>{
     }
 });
 
-const getSection = asyncHandler(async(req,res,next)=>{
-    try {
-          const {alias,sectionName}=req.params;
-          let page =await Page.findOne({alias});
-          if(!page){
-            throw new ApiError(404,"Page not found")
-          }
-          const section=page.sections.find((sec)=>sec.sectionType===sectionName);
-          console.log("this is section",section);
-          res.status(201).json(201,"Section fetched",section);
+const getSection = asyncHandler(async (req, res, next) => {
+    try {console.log("this is section call",req.params);
+        const { alias, sectionName } = req.params;
+        const page = await Page.findOne({ alias });
+        // console.log("this is page",page);
+        if (!page) throw new ApiError(404, "Page not found");
+
+        const section = page.sections.find((sec) => sec.sectionType === sectionName);
+        if (!section) throw new ApiError(404, "Section not found");
+        // console.log("this is section",section); 
+        res.status(200).json(new ApiResponse(200, "Section fetched successfully", section));
     } catch (error) {
-          next(error);
+        next(error);
     }
-})
+});
+
+
 const createSection = asyncHandler(async(req,res,next)=>{
     try {
         const {alias,sectionName}=req.params;
@@ -105,26 +108,7 @@ const deleteSection = asyncHandler(async(req,res,next)=>{
     }
 })
 
-// const addContent =asyncHandler(async(req,res,next)=>{
-//     try {
-//         const {alias,sectionName}=req.params;
-//         const {content}=req.body;
-//         const page = await Page.findOne({alias});
-//         if(!page){
-//             throw new ApiError(404,"Page not found");
-//         }
-//         const section = page.sections.find((sec)=>sec.sectionType===sectionName);
-//         if(!section){
-//             throw new ApiError(401,"Section not found");
-//         }
-//         section.content.push(content);
-//         await page.save();
-//         res.status(201).json(new ApiResponse(200,"Content added successfully",page));
 
-//     } catch (error) {
-//         next(error);
-//     }
-// });
 const addContent = asyncHandler(async (req, res, next) => {
     try {
         const { alias, sectionName } = req.params;
@@ -202,6 +186,32 @@ const deleteContent =asyncHandler(async(req,res,next)=>{
     }
 });
 
+// admin.page.controllers.js
+const selectContent = asyncHandler(async (req, res, next) => {
+    try {
+        const { alias, sectionName, contentId } = req.params;
+        const { isVisible } = req.body; // Boolean to toggle visibility
+
+        let page = await Page.findOne({ alias });
+        if (!page) throw new ApiError(404, "Page not found");
+
+        const section = page.sections.find(sec => sec.sectionType === sectionName);
+        if (!section) throw new ApiError(404, "Section not found");
+
+        const content = section.content.find(item => item._id.toString() === contentId);
+        if (!content) throw new ApiError(404, "Content not found");
+        // console.log("this is content visibility and content",content.isVisible,content);
+
+        content.isVisible = isVisible !== undefined ? isVisible : !content.isVisible;
+        await page.save();
+        // console.log("after toggel content",content);
+        res.status(200).json(new ApiResponse(200, "Content selection updated", content));
+    } catch (error) {
+        next(error);
+    }
+});
+
+
 
 // GET /api/v1/page/home/latest
 const getHomepageLatest = async (req, res, next) => {
@@ -247,6 +257,7 @@ export{
     addContent,
     editContent,
     deleteContent,
+    selectContent,
     getHomepageLatest,
     getLatestSection
 }

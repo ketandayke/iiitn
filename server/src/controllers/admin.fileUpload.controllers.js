@@ -42,37 +42,110 @@ const uploadFile = asyncHandler(async (req, res, next) => {
     }
 });
 
+const uploadContent = asyncHandler(async (req, res, next) => {
+    try {
+        const { alias, sectionName } = req.params;
+        const { heading, description } = req.body;
 
-const deleteFile =asyncHandler(async(req,res,next)=>{
-      try {
-        const {alias,sectionName,contentId} = req.params;
-        // const {description}=req.body; 
+        console.log("File received:", req.file); // Debug log
+        if (!req.file) throw new ApiError(400, "File not uploaded");
+
+        const fileUrl = req.file.path; // Ensure Cloudinary or Multer provides the path
+        console.log("File URL:", fileUrl); // Debug log
+
+        // Save to MongoDB
+        const page = await Page.findOne({ alias });
+        const section = page.sections.find((sec) => sec.sectionType === sectionName);
+        section.content.push({
+            type: "image-text",
+            value: fileUrl,
+            heading,
+            description,
+            isVisible: true
+        });
+
+        await page.save();
+        res.status(201).json(new ApiResponse(201, "Content uploaded successfully"));
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+
+const deleteFile = asyncHandler(async (req, res, next) => {
+    try {
+        const { alias, sectionName, contentId } = req.params;
 
         let page = await Page.findOne({ alias });
         if (!page) {
-            page = new Page({ alias, sections: [] });
+            throw new ApiError(404, "Page not found");
         }
 
-        // Find or create the section
+        // Find the section
+        let section = page.sections.find((sec) => sec.sectionType === sectionName);
+        if (!section) {
+            throw new ApiError(404, "Section not found");
+        }
+
+        // Find the content within the section
+        const content = section.content.find((item) => item._id.toString() === contentId);
+        if (!content) {
+            throw new ApiError(404, "Content not found");
+        }
+
+        // Delete the file from Cloudinary if it's not text
+        if (content.type !== "text") {
+            const public_id = content.value.split("/").pop().split(".")[0];
+            const resource_type = content.type === "pdf" ? "raw" : "image";
+            await cloudinary.uploader.destroy(public_id, { resource_type });
+        }
+
+        // Remove the content from the section
+        section.content = section.content.filter((item) => item._id.toString() !== contentId);
+
+        await page.save();
+        res.status(200).json(new ApiResponse(200, "File deleted successfully"));
+    } catch (error) {
+        next(error);
+    }
+});
+const uploadImageWithText = asyncHandler(async (req, res, next) => {
+    try {
+        console.log("Entered uploadImageWithText route");
+        console.log("Request File:", req.file);  // ✅ Debug
+        console.log("Request Body:", req.body);
+
+        const { alias, sectionName } = req.params;
+        const { heading, description } = req.body;
+
+        const page = await Page.findOne({ alias });
+        if (!page) throw new ApiError(404, "Page not found");
+
         let section = page.sections.find((sec) => sec.sectionType === sectionName);
         if (!section) {
             section = { sectionType: sectionName, content: [] };
             page.sections.push(section);
         }
-        
-        const content=section.content.find((item)=>item._id.toString()===contentId);
-        if(!content){
-            throw new ApiError(404,"Content not found");
-        }
-        if(content.type!=="text"){
-            const public_id=content.value.split("/").pop().split(".")[0];
-            const resource_type=content.type==="pdf"? "raw":"image";
-            await cloudinary.uploader.destroy(public_id,{resource_type:resource_type})
-        }
-        section.content=section.content.find((item)=>item._id.toString()!==contentId);
+
+        const fileUrl = req.file ? req.file.path : null;
+
+        const content = {
+            type: fileUrl ? "image-text" : "text",
+            value: fileUrl || "",
+            heading: heading || "",
+            description: description || "",
+            isVisible: true
+        };
+
+        section.content.push(content);
         await page.save();
-      } catch (error) {
+
+        res.status(201).json(new ApiResponse(201, "Content uploaded successfully", content));
+    } catch (error) {
         next(error);
-      }
-})
-export {uploadFile,deleteFile}
+    }
+});
+
+
+export {uploadFile,uploadContent,deleteFile,uploadImageWithText}

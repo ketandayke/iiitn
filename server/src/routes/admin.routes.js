@@ -1,10 +1,10 @@
 import { Router } from "express";
 import {
     getAllPages,getPage,getSection, createSection, editSection, deleteSection,
-    addContent, editContent, deleteContent, getHomepageLatest
+    addContent, editContent, deleteContent,selectContent, getHomepageLatest, getLatestSection
 } from "../controllers/admin.page.controllers.js";
 import {showAdminProfile, handleAdminLogin} from "../controllers/admin.controllers.js"
-import { deleteFile, uploadFile } from "../controllers/admin.fileUpload.controllers.js";
+import { deleteFile, uploadFile,uploadContent,uploadImageWithText } from "../controllers/admin.fileUpload.controllers.js";
 import { upload } from "../middlewares/uploadMiddleware.js";
 
 const router = Router();
@@ -25,14 +25,21 @@ router.route("/page/:alias/:sectionName/delete").delete(deleteSection);
 router.route("/page/:alias/:sectionName/addContent").post(addContent);
 router.route("/page/:alias/:sectionName/editContent").put(editContent);
 router.route("/page/:alias/:sectionName/deleteContent").delete(deleteContent);
+// routes/adminRoutes.js
+router.route("/page/:alias/:sectionName/upload").post(upload.single("file"), uploadContent);
+
 
 // ✅ File Upload Routes
 router.route("/page/:alias/:sectionName/upload/text").post(uploadFile);
 router.route("/page/:alias/:sectionName/upload/file/:type").post(upload.single("file"), uploadFile);
 router.route("/page/:alias/:sectionName/delete/:contentId").delete(deleteFile);
+router.route("/page/:alias/:sectionName/select/:contentId").put(selectContent);
+router.post("/page/:alias/:sectionName/upload/image-text", upload.single("file"), uploadImageWithText);
+
+
 
 // ✅ Home Page & Latest Page Routes
 router.route("/home/latest").get(getHomepageLatest);
-router.route("/latest/:sectionName").get(getHomepageLatest);
+router.route("/latest/:sectionName").get(getLatestSection);
 
 export default router;
