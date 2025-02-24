@@ -8,16 +8,21 @@ const contentSchema = new Schema({
     value:{
         type:mongoose.Schema.Types.Mixed,
     },
-    isHero:{
-        type:Boolean,
-     default :false 
-    },
     isVisible:{
         type:Boolean,
-        default:true,
+        default:false,
+    },
+    heading:{
+        type:String,
     },
     description:{
         type:String
+    },
+    date:{
+        type:Date
+    },
+    number:{
+        type:Number
     }
     
 })
@@ -25,8 +30,10 @@ const sectionSchema = new Schema({
       sectionType:{
         type:String,
         required:true,
+        unique:true
         
       },
+      allowedContentTypes: { type: [String], default: ["image", "text", "number"] },
       content:[contentSchema]
 })
 const pageSchema = new Schema(

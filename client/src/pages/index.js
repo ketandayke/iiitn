@@ -12,9 +12,6 @@ import WhyRecruitIIITN from "./placements/Why Recruit from IIITN Nagpur";
 import Statistics from "./placements/statistics";
 import ForCompanies from "./placements/ForCompanies";
 import ForStudents from "./placements/ForStudents";
-// import AdminLogin from "./admin/adminLogin";
-import AdminDashboard from "./admin/adminDashboard";
-import ManageHome from "./admin/manageHome";
 import ContactTP from "./placements/ContactTP";
 import Internship from "./placements/Intership";
 import Activities from "./students/activities";
@@ -36,6 +33,11 @@ import PressRelease from "./others/pressRelase";
 import LatestUpdates from "./latestUpdates";
 import Committee from "./committee";
 import ReviewForm from "./review";
+
+// import AdminLogin from "./admin/adminLogin";
+import AdminDashboard from "./admin/adminDashboard";
+import ManageHome from "./admin/manageHome";
+import ManageLatest from "./admin/manageLatest";
 export {
   Homepage,
   Director,
@@ -51,9 +53,6 @@ export {
   Statistics,
   ForCompanies,
   ForStudents,
-  // AdminLogin,
-  AdminDashboard,
-  ManageHome,
   ContactTP,
   Internship,
   Activities,
@@ -75,4 +74,10 @@ export {
   LatestUpdates,
   Committee,
   ReviewForm,
+
+  // AdminLogin,
+  AdminDashboard,
+  ManageHome,
+  ManageLatest
+  
 };

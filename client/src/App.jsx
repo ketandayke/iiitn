@@ -33,6 +33,10 @@ import {
   LatestUpdates,
   Committee,
   ReviewForm,
+  AdminDashboard,
+  ManageHome,
+  ManageLatest
+  // AdminLogin
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
 
@@ -63,6 +67,14 @@ function App() {
 
           <Route path="/placement/contact-tp" element={<ContactTP />} />
           <Route path="/placement/internship" element={<Internship />} />
+          <Route path="/placement/Statistics" element={<Statistics />} />
+          <Route path="/placement/ForCompanies" element={<ForCompanies />} />
+          <Route path="/placement/ForStudents" element={<ForStudents />} />
+        
+          <Route path="/placement/ContactTP" element={<ContactTP />} />
+          <Route path="/placement/Intership" element={<Internship />} />
+
+          {/* Routes for Students */}
           <Route path="/students/activities" element={<Activities />} />
           <Route path="/students/achievements" element={<Achievements />} />
           <Route path="/students/scholarships" element={<Scholarships />} />
@@ -91,6 +103,20 @@ function App() {
           <Route path="/latest" element={<LatestUpdates />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/add-review" element={<ReviewForm />} />
+          <Route path="/student/hostel" element={<Hostel />} />
+          <Route path="/student/StudentMess" element={<StudentMess />} />
+          <Route path="/student/Download" element={<Download />} />
+          <Route path="/student/convocation" element={<Convocation />} />
+          <Route path="/student/Fees" element={<Fees />} />
+
+
+
+           {/* Routes fir Admin Controll */}
+           {/* Admin related routes */}
+           {/* <Route path="/admin/login" element={<AdminLogin/>} /> */}
+           <Route path="/admin/Dashboard" element={<AdminDashboard/>} />
+           <Route path="/admin/manage-home" element={<ManageHome/>} />
+           <Route path="/admin/manage-latest" element={<ManageLatest/>} />
         </Routes>
       </Router>
     </>

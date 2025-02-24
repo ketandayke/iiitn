@@ -1,61 +1,47 @@
-import React, { useState } from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const notices = [
-  { id: 1, title: "Mid-Semester Exams Schedule Released", category: "Students", date: "Feb 20, 2025" },
-  { id: 2, title: "Workshop on AI and Machine Learning", category: "Faculty", date: "Feb 18, 2025" },
-  { id: 3, title: "IIITN Ranked Among Top 10 IT Institutes", category: "Achievements", date: "Feb 15, 2025" },
-  { id: 4, title: "Annual Sports Meet Registrations Open", category: "Students", date: "Feb 14, 2025" },
-];
+const Latest = ({ data, sectionType }) => {
+    const navigate = useNavigate();
+    const sectionTitleMap = {
+        notices: "📢 Latest Notices",
+        achievements: "🏆 Achievements",
+        news: "🗞️ IIITN in News",
+        events: "📅 Upcoming Events"
+    };
 
-const categories = ["All", "Students", "Faculty", "Achievements"];
+    return (
+        <div className="w-full py-12">
+            <div className="w-[90%] mx-auto">
+                <h2 className="text-4xl font-bold text-center mb-8">{sectionTitleMap[sectionType] || "Latest Updates"}</h2>
 
-export default function Latest() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+                {data?.length > 0 ? (
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {data.slice(0, 3).map((item, index) => ( // Show only 3 items
+                                <div key={item._id || index} className="border rounded-xl p-4 shadow-lg">
+                                    <h3 className="text-lg font-semibold">{item.heading || 'No Title'}</h3>
+                                    {item.date && <p className="text-gray-500 text-sm">{item.date}</p>}
+                                    <p className="text-gray-700 mt-2">{item.description || 'No Description'}</p>
+                                </div>
+                            ))}
+                        </div>
 
-  const filteredNotices = selectedCategory === "All" 
-    ? notices 
-    : notices.filter((notice) => notice.category === selectedCategory);
+                        <div className="w-full flex justify-center mt-8">
+                            <button
+                                onClick={() => navigate('/latest')}
+                                className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg"
+                            >
+                                View All
+                            </button>
+                        </div>
+                    </>
+                ) : (
+                    <div className="text-center text-gray-500">No updates available</div>
+                )}
+            </div>
+        </div>
+    );
+};
 
-  return (
-    <div className="w-full overflow-hidden">
-        <div className="w-[90%] mx-auto py-16">
-      <h2 className="text-4xl font-bold text-center mb-8">📢 Latest in IIITN</h2>
-
-      {/* Category Filter */}
-      <div className="flex justify-center flex-wrap gap-4 space-x-4 mb-8">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`px-6 py-3 rounded-lg border ${
-              selectedCategory === category
-                ? "bg-blue-600 text-white"
-                : "border-gray-300 text-gray-600"
-            } hover:bg-blue-500 hover:text-white`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      {/* Notices Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredNotices.map((notice) => (
-          <div key={notice.id} className="border rounded-xl p-4 shadow-lg hover:shadow-xl transition-all">
-            <h3 className="text-lg font-semibold mb-2">{notice.title}</h3>
-            <p className="text-gray-500 text-sm mb-2">{notice.date}</p>
-            <span className="inline-block bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded-full">
-              {notice.category}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      {/* View All Button */}
-      <div className="text-center mt-8">
-      <button className="mt-4 px-6 py-3 text-xl bg-blue-500 hover:bg-blue-600 text-white rounded-lg cursor-pointer">View All</button>
-      </div>
-    </div>
-    </div>
-  );
-}
+export default Latest;
