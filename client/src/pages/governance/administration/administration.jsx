@@ -8,10 +8,10 @@ export default function Administration() {
   return (
     <>
       <div className="container">
-        <h1 className="pl-70 text-5xl font-bold text-gray-800 mt-25 mb-10">
+        <h1 className="pl-0 text-5xl font-bold text-gray-800 mt-25 mb-10">
           Administration
         </h1>
-        <div className="navbar pl-70">
+        <div className="navbar pl-0">
           <button onClick={() => setSelectedPage("director")}>Director</button>
           <button onClick={() => setSelectedPage("registrar")}>
             Registrar
@@ -21,7 +21,7 @@ export default function Administration() {
         </div>
 
         {
-          <div className="content pl-70">
+          <div className="content pl-0">
             {selectedPage === "director" && <Director />}
             {selectedPage === "registrar" && <Registrar />}
             {selectedPage === "chairman" && <Chairman />}

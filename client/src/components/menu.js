@@ -7,7 +7,7 @@ const menuItems = [
       title: "About Us",
       submenu: [
         { name: "About IIITN", link: "/about" },
-        { name: "Facilities", link: "/facilites" },
+        { name: "Facilities", link: "/facilities" },
       ],
     },
     {
@@ -21,12 +21,12 @@ const menuItems = [
     {
       title: "Placements",
       submenu: [
-        { name: "Placement About Us", link: "/placement/PlacementAboutUs" },
-        { name: "Why Recruit IIITN", link: "/placement/WhyRecruitIIITN" },
-        { name: "Statistics", link: "/placement/Statistics" },
-        { name: "For Companies", link: "/placement/ForCompanies" },
-        { name: "For Students", link: "/placement/ForStudents" },
-        { name: "Internship", link: "/placement/Intership" },
+        { name: "Placement About Us", link: "/placement/about" },
+        { name: "Why Recruit IIITN", link: "/placement/why-recruit-iiitn" },
+        { name: "Statistics", link: "/placement/statistics" },
+        { name: "For Companies", link: "/placement/for-companies" },
+        { name: "For Students", link: "/placement/for-students" },
+        { name: "Internship", link: "/placement/internship" },
         { name: "Contact TP", link: "/placement/ContactTP" },
       ],
     },
@@ -35,10 +35,10 @@ const menuItems = [
       submenu: [
         { name: "Activities", link: "/students/activities" },
         { name: "Achievements", link: "/students/achievements" },
-        { name: "Scholarships", link: "/students/Scholarship" },
-        { name: "Clinical Counselling", link: "/students/clinicalCounselling" },
-        { name: "Hostel", link: "/student/hostel" },
-        { name: "Student Mess", link: "/student/StudentMess" },
+        { name: "Scholarships", link: "/students/scholarships" },
+        { name: "Clinical Counselling", link: "/students/clinical-counselling" },
+        { name: "Hostel", link: "/students/hostel" },
+        { name: "Student Mess", link: "/students/mess" },
         { name: "Download", link: "/student/Download" },
         { name: "Convocation", link: "/student/convocation" },
         { name: "Fees", link: "/student/Fees" },

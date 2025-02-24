@@ -15,7 +15,7 @@ export default function ForStudents() {
         />
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-xl">
+      <div className="bg-white pl-40 p-6 rounded-xl shadow-xl">
         <p className="text-lg mb-4">
           Students are informed to keep below documents ready for all the
           internship & placement selection processes.

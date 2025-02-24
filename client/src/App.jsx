@@ -10,8 +10,6 @@ import {
   Statistics,
   ForCompanies,
   ForStudents,
-  AdminDashboard,
-  ManageHome,
   Internship,
   ContactTP,
   Activities,

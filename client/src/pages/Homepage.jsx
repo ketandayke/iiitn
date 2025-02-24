@@ -1,32 +1,4 @@
-import React from "react";
-import {
-  HamburgerMenu,
-  Hero,
-  Mission,
-  Latest,
-  News,
-  Glance,
-  Events,
-  Partners,
-  Testimonials,
-  Footer,
-} from "../components/index.js";
 
-export default function Homepage() {
-  return (
-    <>
-      <Hero />
-
-      <Mission />
-      <Latest />
-      <News />
-      <Glance />
-      <Events />
-      <Partners />
-      <Testimonials />
-      <Footer />
-    </>
-  );
 import React, { useEffect, useState } from "react";
 import api from "../utils/axiosInstance";
 import { Hero, Mission, Latest, News, Glance, Events, Testimonials, Footer } from "../components";
@@ -80,7 +52,8 @@ export default function Homepage() {
             <Glance data={glanceData} />
             <Events data={getSectionData("events")} />
             {/* <Testimonials data={testimonialsData} /> */}
+            <Testimonials />
             <Footer />
         </>
     );
-}
+};

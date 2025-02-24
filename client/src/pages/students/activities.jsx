@@ -75,14 +75,15 @@ export default function Activities() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: "Crescendo Music Club", image: "crescendo.jpg" },
-          { name: "Dance Club D-Taraxia", image: "d-taraxia.jpg" },
-          { name: "Drama Club Estoria", image: "estoria.jpg" },
-          { name: "Iotics Club", image: "iotics.jpg" },
-          { name: "Elevate Club", image: "elevate.jpg" },
-          { name: "Dot Slash", image: "dot-slash.jpg" },
-          { name: "GDSC", image: "gdsc.jpg" },
-          { name: "Design Club Strokes", image: "strokes.jpg" },
+          { name: "Crescendo Music Club", image: "../../../images/cres.png" },
+          { name: "Dance Club D-Taraxia", image: "../../../images/dtara.png" },
+          { name: "Drama Club Estoria", image: "../../../images/estro.png" },
+          { name: "Iotics Club", image: "../../../images/iotics.png" },
+          { name: "Elevate Club", image: "../../../images/elevate.png" },
+          { name: "Dot Slash", image: "../../../images/dot.png" },
+          { name: "Probe", image: "../../../images/probe.png" },
+          { name: "Design Club Strokes", image: "../../../images/strokes.png" },
+          { name: "Orator", image: "../../../images/orator.png" },
         ].map((club, index) => (
           <div key={index} className="bg-white p-4 rounded-xl shadow-xl">
             <img
