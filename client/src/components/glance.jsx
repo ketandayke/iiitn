@@ -1,40 +1,64 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import "./Glance.css";
+import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
-export default function Glance({ data }) {
-  const navigate = useNavigate();
-  console.log("data at glance is",data);
+const Glance = () => {
   return (
-    <div className="w-[90%] mx-auto py-16">
-      <h2 className="text-4xl font-bold text-center mb-8">
-        🎯 IIITN AT A GLANCE
-      </h2>
+    <section className="glance mt-8">
+      {/* Background Image */}
+      <div className="glance-background"></div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data?.filter(item => item.isVisible).map((item) => (
-          <div
-            key={item._id}
-            className="group relative overflow-hidden rounded-xl cursor-pointer shadow-lg transition-all duration-300 hover:shadow-xl"
-            onClick={() => item.type === 'text' && navigate(item.description)}
+      {/* Content Box */}
+      <div className="glance-content">
+        <h2>EVENTS@IIITN</h2>
+        <p>
+          Experience the vibrant culture of IIITN with annual tech, cultural,
+          and entrepreneurial events that foster innovation, creativity, and
+          leadership.
+        </p>
+
+        {/* Event List */}
+        <ul className="event-list">
+          <li>ABHIVYAKTI &gt;</li>
+          <li>TANTRAFIESTA &gt;</li>
+          <li>E-SUMMIT &gt;</li>
+          <li>KSHITIJ &gt;</li>
+        </ul>
+
+        {/* Social Media Links */}
+        <div className="social-icons">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {item.type.includes('image') && (
-              <img
-                src={item.value}
-                alt={item.heading || 'Image'}
-                className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
-              />
-            )}
-            {/* <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <h3 className="text-white text-lg font-semibold text-center">
-                {item.heading || 'No Title'}
-              </h3>
-            </div> */}
-            <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-              <span className="block text-center font-bold">{item.heading || 'No Title'}</span>
-            </div>
-          </div>
-        ))}
+            <FaInstagram />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default Glance;

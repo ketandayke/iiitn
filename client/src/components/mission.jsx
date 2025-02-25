@@ -7,12 +7,12 @@ const Mission = ({ data = [], counterData = [] }) => {
     const visibleData = data.filter(item => item.isVisible);
 
     return (
-        <div className="w-full min-h-min bg-gray-100 py-12 overflow-hidden">
+        <div className="w-full min-h-min bg-[url('../images/stu_exch_academic.jpg')] py-12 overflow-hidden">
             <div className="w-[90%] mx-auto space-y-10">
                 {visibleData.map((item, index) => (
-                    <div key={item._id || index} className="text-center">
+                    <div key={item._id || index} className="text-center md:px-12">
                         <h2 className="text-3xl font-bold sm:text-4xl">{item.heading}</h2>
-                        <p className="text-xl sm:text-3xl md:px-12 my-6 tracking-wide">{item.description}</p>
+                        <p className="text-xl sm:text-2xl  my-6 tracking-wide">{item.description}</p>
                         <div className="w-full flex justify-center items-center">
                             <button 
                                 className="mt-4 px-6 py-3 text-xl bg-blue-500 hover:bg-blue-600 text-white rounded-lg cursor-pointer"
@@ -23,8 +23,9 @@ const Mission = ({ data = [], counterData = [] }) => {
                         </div>
                     </div>
                 ))}
+                  <StatsCounter counters={counterData || []} />
             </div>
-            <StatsCounter counters={counterData || []} />
+          
         </div>
     );
 };

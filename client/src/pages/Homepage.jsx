@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import api from "../utils/axiosInstance";
-import { Hero,AcademicSection, Mission, Latest, News, Glance, Events, Testimonials, Footer } from "../components";
+import { Hero,AcademicSection, Mission, Latest, News, Glance, Events, Testimonials, Footer, CampusImages } from "../components";
+import Research from "../components/research";
 // import AcademicSection from "../components/academicSection";
 
 export default function Homepage() {
@@ -48,10 +49,13 @@ export default function Homepage() {
             <Hero data={heroData} />
             <AcademicSection />
             <Mission data={missionData} counterData={counterData} />
-            <Latest data={getSectionData("notices")} sectionType="notices" />
+            <Research />
+            <CampusImages />
+            <Glance data={glanceData} />
+
+            {/* <Latest data={getSectionData("notices")} sectionType="notices" /> */}
             <Latest data={getSectionData("achievements")} sectionType="achievements" />
             <News data={getSectionData("news")} />
-            <Glance data={glanceData} />
             <Events data={getSectionData("events")} />
             {/* <Testimonials data={testimonialsData} /> */}
             <Testimonials />
