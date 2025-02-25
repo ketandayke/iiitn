@@ -1,7 +1,7 @@
 // components/Section.jsx
 
 import React, { useState, useEffect } from "react";
-import FileUploader from "./fileUploader";
+
 import FileGallery from "./fileGallery";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";

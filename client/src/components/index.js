@@ -15,8 +15,8 @@ import Partners from "./parteners.jsx";
 import Testimonials from "./testimonials.jsx";
 import Footer from "./footer.jsx";
 import FileGallery from "./fileGallery.jsx";
-import FileUploader from "./fileUploader.jsx";
 import Section from "./section.jsx";
+import CampusImages from "./Campus.jsx";
 export {
     HamburgerMenu,
     SearchBar,
@@ -35,6 +35,6 @@ export {
     Testimonials,
     Footer,
     FileGallery,
-    FileUploader,
-    Section
+    Section,
+    CampusImages,
 }
