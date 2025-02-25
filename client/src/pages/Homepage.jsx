@@ -1,39 +1,61 @@
-import React from "react";
-import { HamburgerMenu } from "../components/index.js";
+
+import React, { useEffect, useState } from "react";
+import api from "../utils/axiosInstance";
+import { Hero,AcademicSection, Mission, Latest, News, Glance, Events, Testimonials, Footer } from "../components";
+// import AcademicSection from "../components/academicSection";
 
 export default function Homepage() {
-  return (
-    <>
-      <div className="w-screen h-screen background px-12">
-        {/* Hamburger Menu */}
-        <div className="h-24 pt-6 flex justify-between items-center backdrop-blur-md">
-          <HamburgerMenu className=" top-8 left-8 w-12 h-10 " />
-          <div className="flex items-center justify-center gap-2">
-            <img
-              src="../../images/iiitn_logo.svg"
-              alt="iiitn logo"
-              className="w-16 h-16"
-            ></img>
-            <div>
-              <h2>भारतीय सूचना प्रौद्योगिकी संस्थान, नागपुर</h2>
-              <h2 className="text-blue-600 font-bold text-xl">
-                Indian Institute of Information Technology ,Nagpur
-              </h2>
-              <h3 className="text-orange-300">
-                An Institution of National Importance By An Act of Parliament
-              </h3>
-            </div>
-          </div>
+    const [heroData, setHeroData] = useState([]);
+    const [missionData, setMissionData] = useState([]);
+    const [counterData, setCounterData] = useState([]);
+    const [latestSections, setLatestSections] = useState([]);
+    const [glanceData, setGlanceData] = useState([]);
+    // const [testimonialsData, setTestimonialsData] = useState([]);
 
-          <div>
-            <input
-              type="text"
-              placeholder="search"
-              className="w-20 h-10 bg-slate-400"
-            ></input>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+    // 🌱 **Initial Fetch for All Data**
+    useEffect(() => {
+        const fetchInitialData = async () => {
+            try {
+                const [heroResponse, missionResponse, counterResponse, glanceResponse, latestResponse] = await Promise.all([
+                    api.get("/admin/page/home/hero"),
+                    api.get("/admin/page/home/mission"),
+                    api.get("/admin/page/home/counters"),
+                    api.get("/admin/page/home/iiitn-at-a-glance"),
+                    api.get("/page/home/latest") // Single call for all latest sections
+                ]);
+
+                setHeroData(heroResponse.data.data.content || []);
+                setMissionData(missionResponse.data.data.content || []);
+                setCounterData(counterResponse.data.data.content || []);
+                setGlanceData(glanceResponse.data.data.content || []);
+                setLatestSections(latestResponse.data.data || []); // Store all latest sections
+            } catch (error) {
+                console.error("Error fetching initial data:", error);
+            }
+        };
+        fetchInitialData();
+    }, []);
+
+    // ✅ **Helper to Extract Section Data**  
+    const getSectionData = (sectionType) => {
+        const section = latestSections.find(section => section.sectionType === sectionType);
+        return section ? section.content.slice(0, 3) : []; // Show only 3 items
+    };
+
+    // ✅ **Render Components**
+    return (
+        <>
+            <Hero data={heroData} />
+            <AcademicSection />
+            <Mission data={missionData} counterData={counterData} />
+            <Latest data={getSectionData("notices")} sectionType="notices" />
+            <Latest data={getSectionData("achievements")} sectionType="achievements" />
+            <News data={getSectionData("news")} />
+            <Glance data={glanceData} />
+            <Events data={getSectionData("events")} />
+            {/* <Testimonials data={testimonialsData} /> */}
+            <Testimonials />
+            <Footer />
+        </>
+    );
+};
