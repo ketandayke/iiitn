@@ -5,7 +5,7 @@ const News = ({ data }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full  bg-gray-100  py-16">
+        <div className="w-full bg-gray-100 py-16">
             <div className="w-[90%] mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-4">Campus News</h2>
                 <p className="text-lg text-center text-gray-600 mb-8">Stories about people, research, and innovation across the Farm</p>
