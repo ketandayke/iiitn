@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import api from "../utils/axiosInstance";
-import { Hero, Mission, Latest, News, Glance, Events, Testimonials, Footer } from "../components";
+import { Hero,AcademicSection, Mission, Latest, News, Glance, Events, Testimonials, Footer } from "../components";
+// import AcademicSection from "../components/academicSection";
 
 export default function Homepage() {
     const [heroData, setHeroData] = useState([]);
@@ -45,6 +46,7 @@ export default function Homepage() {
     return (
         <>
             <Hero data={heroData} />
+            <AcademicSection />
             <Mission data={missionData} counterData={counterData} />
             <Latest data={getSectionData("notices")} sectionType="notices" />
             <Latest data={getSectionData("achievements")} sectionType="achievements" />

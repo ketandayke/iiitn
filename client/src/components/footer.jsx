@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";  // Import Link
 
 export default function Footer() {
   return (
@@ -22,19 +23,13 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold mb-4">Important Links</h3>
           <ul className="space-y-2">
-            {[
-              'Grievance',
-              'Networking Complaint',
-              'Grievance Committee SC/ST Cell',
-              'Anti-Ragging Committee',
-              'Internal Complaint Committee',
-              'Policy for Prevention of Sexual Harassment of Women at Workplace',
-              'Equal Opportunity Cell'
-            ].map((link) => (
-              <li key={link} className="hover:text-blue-400 cursor-pointer">
-                {link}
-              </li>
-            ))}
+            <li><Link to="/grievance" className="hover:text-blue-400 cursor-pointer">Grievance</Link></li>
+            <li><Link to="/networking-complaint" className="hover:text-blue-400 cursor-pointer">Networking Complaint</Link></li>
+            <li><Link to="/grievance-committee" className="hover:text-blue-400 cursor-pointer">Grievance Committee SC/ST Cell</Link></li>
+            <li><Link to="/anti-ragging" className="hover:text-blue-400 cursor-pointer">Anti-Ragging Committee</Link></li>
+            <li><Link to="/internal-complaint" className="hover:text-blue-400 cursor-pointer">Internal Complaint Committee</Link></li>
+            <li><Link to="/sexual-harassment-policy" className="hover:text-blue-400 cursor-pointer">Prevention of Sexual Harassment Policy</Link></li>
+            <li><Link to="/equal-opportunity" className="hover:text-blue-400 cursor-pointer">Equal Opportunity Cell</Link></li>
           </ul>
         </div>
 
@@ -42,21 +37,15 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold mb-4">Quick Links</h3>
           <ul className="space-y-2">
-            {[
-              'Institute Webmail',
-              'Online Fees Payment',
-              'Academic Calendar',
-              'How to Reach',
-              'Location',
-              'Tender',
-              'Recruitment',
-              'Guest House',
-              'Contact Us'
-            ].map((link) => (
-              <li key={link} className="hover:text-blue-400 cursor-pointer">
-                {link}
-              </li>
-            ))}
+            <li><Link to="/webmail" className="hover:text-blue-400 cursor-pointer">Institute Webmail</Link></li>
+            <li><Link to="/fees-payment" className="hover:text-blue-400 cursor-pointer">Online Fees Payment</Link></li>
+            <li><Link to="/academic-calendar" className="hover:text-blue-400 cursor-pointer">Academic Calendar</Link></li>
+            <li><Link to="/how-to-reach" className="hover:text-blue-400 cursor-pointer">How to Reach</Link></li>
+            <li><Link to="/location" className="hover:text-blue-400 cursor-pointer">Location</Link></li>
+            <li><Link to="/tender" className="hover:text-blue-400 cursor-pointer">Tender</Link></li>
+            <li><Link to="/recruitment" className="hover:text-blue-400 cursor-pointer">Recruitment</Link></li>
+            <li><Link to="/guest-house" className="hover:text-blue-400 cursor-pointer">Guest House</Link></li>
+            <li><Link to="/contact-us" className="hover:text-blue-400 cursor-pointer">Contact Us</Link></li>
           </ul>
         </div>
       </div>

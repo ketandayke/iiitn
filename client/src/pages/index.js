@@ -33,7 +33,21 @@ import PressRelease from "./others/pressRelase";
 import LatestUpdates from "./latestUpdates";
 import Committee from "./committee";
 import ReviewForm from "./review";
-
+import Grievance from "./footer/Grievance";
+import GrievanceCommitteeSCST from "./footer/grievanceCommitee";
+import HowToReach from "./footer/howToReach";
+import NetworkingComplaint from "./footer/networkingComplaints";
+import InstituteWebmail from "./footer/instituteWebmail";
+import AntiRagging from "./footer/antiragging";
+import InternalComplaint from "./footer/internalComplaints";
+import SexualHarassmentPolicy from "./footer/sexuallyHarassmentPolicy";
+import EqualOpportunity from "./footer/equalOpportunity";
+import OnlineFeesPayment from "./footer/onlineFeesPayments";
+import AcademicCalendar from "./footer/academicCalendar";
+import Location from "./footer/location";
+import Tender from "./footer/tender";
+import Recruitment from "./footer/recruitment";
+import GuestHouseQuickLinks from "./footer/guestHouseLinks";
 // import AdminLogin from "./admin/adminLogin";
 import AdminDashboard from "./admin/adminDashboard";
 import ManageHome from "./admin/manageHome";
@@ -74,7 +88,21 @@ export {
   LatestUpdates,
   Committee,
   ReviewForm,
-
+  Grievance,
+  NetworkingComplaint,
+  GrievanceCommitteeSCST,
+  AntiRagging,
+  InternalComplaint,
+  SexualHarassmentPolicy,
+  EqualOpportunity,
+  InstituteWebmail,
+  OnlineFeesPayment, 
+  AcademicCalendar,
+  HowToReach ,
+  Location ,
+  Tender ,
+  Recruitment ,
+  GuestHouseQuickLinks,
   // AdminLogin,
   AdminDashboard,
   ManageHome,

@@ -18,7 +18,8 @@ import FileGallery from "./fileGallery.jsx";
 import FileUploader from "./fileUploader.jsx";
 import Section from "./section.jsx";
 import SearchBar from "./searchBar";
-
+import Box from "./box.jsx";
+import AcademicSection from "./academicSection.jsx";
 export {
   HamburgerMenu,
   LeadershipCard,
@@ -39,4 +40,6 @@ export {
   FileUploader,
   Section,
   SearchBar,
+  AcademicSection,
+  Box
 };

@@ -94,6 +94,12 @@ td a:hover {
 .hamburger:hover {
   border: 2px solid white;
 }
+
+.hamburger .bar {
+  transition: all 0.3s ease;
+}
+
+
 .grade1{
   background-color: #42a7f5;
   background-image: linear-gradient(#2706a9 1%,#90c0e5 25%,#abd3f1 50%,#b0d4ef 75%,#e2edef 100%);
