@@ -13,14 +13,14 @@ const Testimonial = () => {
       src="../images/rev1.jpg"
       alt="Person"
       className="testimonial-profile"
-      style={{ width: "100px", height: "100px", objectFit: "cover", borderRadius: "50%", marginBottom: "15px" }}
+      style={{ width: "200px", height: "200px", objectFit: "cover", borderRadius: "50%", marginBottom: "15px" }}
     />
     <p className="testimonial-quote">
       "The campus environment and supportive faculty made my journey memorable."
     </p>
     <h3 className="testimonial-name">Ishita Patel</h3>
     <p className="testimonial-class">2022</p>
-    <a href="#" className="testimonial-more">More &gt;</a>
+    <a href="#" className="testimonial-more text-blue-400 hover:text-blue-600">More &gt;</a>
   </div>
 </div>
 
