@@ -7,6 +7,8 @@ import Research from "../components/research";
 
 export default function Homepage() {
     const [heroData, setHeroData] = useState([]);
+    const [academicData,setAcademicData] =useState([]);
+    const [programs,setPrograms] =useState([]);
     const [missionData, setMissionData] = useState([]);
     const [counterData, setCounterData] = useState([]);
     const [latestSections, setLatestSections] = useState([]);
@@ -17,8 +19,10 @@ export default function Homepage() {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const [heroResponse, missionResponse, counterResponse, glanceResponse, latestResponse] = await Promise.all([
+                const [heroResponse,academicResponse,programsResponse,missionResponse, counterResponse, glanceResponse, latestResponse] = await Promise.all([
                     api.get("/admin/page/home/hero"),
+                    api.get("admin/page/home/academic"),
+                    api.get("academic-program/home/academic"),
                     api.get("/admin/page/home/mission"),
                     api.get("/admin/page/home/counters"),
                     api.get("/admin/page/home/iiitn-at-a-glance"),
@@ -26,10 +30,13 @@ export default function Homepage() {
                 ]);
 
                 setHeroData(heroResponse.data.data.content || []);
+                setAcademicData(academicResponse.data.data.content);
+                setPrograms(programsResponse.data.data);
                 setMissionData(missionResponse.data.data.content || []);
                 setCounterData(counterResponse.data.data.content || []);
                 setGlanceData(glanceResponse.data.data.content || []);
                 setLatestSections(latestResponse.data.data || []); // Store all latest sections
+                console.log("programs data",programsResponse.data.data);
             } catch (error) {
                 console.error("Error fetching initial data:", error);
             }
@@ -47,14 +54,14 @@ export default function Homepage() {
     return (
         <>
             <Hero data={heroData} />
-            <AcademicSection />
+            <AcademicSection data={academicData} programs={programs} />
             <Mission data={missionData} counterData={counterData} />
             <Research />
             <CampusImages />
             <Glance data={glanceData} />
 
             {/* <Latest data={getSectionData("notices")} sectionType="notices" /> */}
-            <Latest data={getSectionData("achievements")} sectionType="achievements" />
+            {/* <Latest data={getSectionData("achievements")} sectionType="achievements" /> */}
             <News data={getSectionData("news")} />
             <Events data={getSectionData("events")} />
             {/* <Testimonials data={testimonialsData} /> */}
