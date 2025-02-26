@@ -44,7 +44,7 @@ const StatsCounter = ({ counters=[] }) => {
     };
 
     return (
-        <div ref={ref} className="w-full bg-gray-100 py-16">
+        <div ref={ref} className="w-full  py-16">
             <motion.div
                 className="grid grid-cols-2 md:grid-cols-4 gap-8 w-[90%] mx-auto text-center"
                 initial={{ opacity: 0, y: 50 }}

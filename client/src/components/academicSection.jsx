@@ -27,9 +27,9 @@ export default function AcademicSection() {
     <>
     <div className="w-full my-8">
     <div className="min-h-screen w-[90%] mx-auto md:px-12">
-      <div className="text-start mb-16">
+      <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Academics</h2>
-        <p className="text-xl text-gray-600">At IIIT Nagpur, explore a range of programs from undergraduate to doctoral studies.</p>
+        <p className="text-2xl">At IIIT Nagpur, explore a range of programs from undergraduate to doctoral studies.</p>
       </div>
       <div className="flex justify-between gap-6">
         {boxes.map((box, index) => (
