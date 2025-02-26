@@ -21,6 +21,7 @@ import SearchBar from "./searchBar";
 import Box from "./box.jsx";
 import AcademicSection from "./academicSection.jsx";
 import CampusImages from "./Campus.jsx";
+import AchievementsSection from "./achievements.jsx";
 export {
   HamburgerMenu,
   LeadershipCard,
@@ -43,5 +44,6 @@ export {
   SearchBar,
   AcademicSection,
   Box,
-  CampusImages
+  CampusImages,
+  AchievementsSection,
 };
