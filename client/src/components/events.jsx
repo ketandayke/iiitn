@@ -22,7 +22,7 @@ const Events = ({ data }) => {
                                     alt={item.title || 'No Title'} 
                                     className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
                                 />
-                                <div className="absolute bottom-0 left-0 w-full bg-green-500 text-white p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <div className="absolute bottom-0 left-0 w-full bg-blue-800 text-white p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                     <span className="block text-center font-bold">{item.heading || 'No Title'}</span>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@ const Events = ({ data }) => {
                     <div className="w-full flex justify-center mt-8">
                         <button
                             onClick={() => navigate('/latest')}
-                            className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg text-lg"
+                            className="bg-blue-700 hover:bg-blue-900 text-white px-6 py-3 rounded-lg text-lg cursor-pointer"
                         >
                             View All
                         </button>
