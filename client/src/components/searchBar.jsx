@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Search, X } from "lucide-react"; // Lucide icons
 import { useNavigate } from "react-router-dom";
 
-export default function SearchBar({ className = "" }) {
+export default function SearchBar({ className = "", dropdown = false }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef(null);
@@ -45,7 +45,7 @@ export default function SearchBar({ className = "" }) {
       )
     : [];
 
-  // ✅ Close search modal when clicking outside
+  // Close modal/dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -57,10 +57,94 @@ export default function SearchBar({ className = "" }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Lock background scrolling (desktop & mobile)
+  useEffect(() => {
+    const preventTouch = (e) => e.preventDefault();
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.addEventListener("touchmove", preventTouch, { passive: false });
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.removeEventListener("touchmove", preventTouch);
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.removeEventListener("touchmove", preventTouch);
+    };
+  }, [isOpen]);
+
   const handleNavigation = (path) => {
-    navigate(path);
     setIsOpen(false);
     setSearchTerm("");
+    navigate(path);
+  };
+
+  // Update container style with a gradient background
+  const searchContainerStyles = {
+    width: "90%",
+    maxWidth: "31.25rem", // 500px
+    background: "linear-gradient(to right, #330080, #101828)",
+    padding: "0.9375rem", // 15px
+    borderRadius: "0.625rem", // 10px
+    boxShadow: "0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2)",
+    position: "relative",
+  };
+
+  // Shared style for search input and close button
+  const inputStyle = {
+    width: "100%",
+    padding: "0.75rem", // 12px
+    fontSize: "1.125rem", // 18px
+    border: "none",
+    borderRadius: "0.3125rem", // 5px
+    outline: "none",
+    background: "rgba(255, 255, 255, 0.2)",
+    color: "white",
+    paddingRight: "2.5rem", // 40px
+  };
+
+  const closeButtonStyle = {
+    position: "absolute",
+    top: "50%",
+    right: "0.625rem", // 10px
+    transform: "translateY(-50%)",
+    background: "rgba(0, 0, 0, 0.6)",
+    border: "none",
+    cursor: "pointer",
+    borderRadius: "50%",
+    padding: "0.3125rem", // 5px
+    color: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const resultsContainerStyle = {
+    marginTop: "0.625rem", // 10px
+    maxHeight: "18.75rem", // 300px
+    overflowY: "auto",
+  };
+
+  const resultItemStyle = {
+    cursor: "pointer",
+    padding: "0.625rem", // 10px
+    background: "rgba(255, 255, 255, 0.2)",
+    borderRadius: "0.3125rem", // 5px
+    marginBottom: "0.3125rem", // 5px
+    color: "white",
+    textAlign: "center",
+    fontSize: "1rem", // 16px
+    transition: "background 0.2s",
+  };
+
+  const noResultsStyle = {
+    color: "white",
+    textAlign: "center",
+    fontSize: "1rem", // 16px
+    padding: "0.625rem", // 10px
   };
 
   return (
@@ -72,130 +156,127 @@ export default function SearchBar({ className = "" }) {
           background: "transparent",
           border: "none",
           cursor: "pointer",
-          padding: "8px",
+          padding: "0.5rem", // 8px
         }}
       >
         <Search size={28} color="#333" />
       </button>
 
-      {/* Full-Screen Search Modal */}
       {isOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 1000,
-          }}
-        >
-          <div
-            ref={modalRef} // ✅ Now the whole box is covered
-            style={{
-              width: "90%",
-              maxWidth: "500px",
-              background: "linear-gradient(to right, #6a85b6, #bac8e0)",
-              padding: "15px",
-              borderRadius: "10px",
-              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-              position: "relative",
-            }}
-          >
-            {/* Search Input Box */}
-            <div style={{ position: "relative" }}>
-              <input
-                type="text"
-                placeholder="Search for pages..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  fontSize: "18px",
-                  border: "none",
-                  borderRadius: "5px",
-                  outline: "none",
-                  background: "rgba(255, 255, 255, 0.2)",
-                  color: "white",
-                  paddingRight: "40px", // Space for close button
-                }}
-                autoFocus
-              />
-
-              {/* Close Button (Centered Inside Box) */}
-              <button
-                onClick={() => {
-                  setSearchTerm("");
-                  setIsOpen(false);
-                }}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  right: "10px",
-                  transform: "translateY(-50%)",
-                  background: "rgba(0, 0, 0, 0.6)",
-                  border: "none",
-                  cursor: "pointer",
-                  borderRadius: "50%",
-                  padding: "5px",
-                  color: "white",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            {/* Search Results */}
+        <>
+          {dropdown ? (
+            // --- Dropdown Mode ---
             <div
+              ref={modalRef}
               style={{
-                marginTop: "10px",
-                maxHeight: "300px",
-                overflowY: "auto",
+                position: "absolute",
+                top: "100%",
+                right: "0",
+                marginTop: "0.5rem",
+                zIndex: 9999,
+                ...searchContainerStyles,
               }}
             >
-              {filteredPages.length > 0 ? (
-                filteredPages.map((page, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      cursor: "pointer",
-                      padding: "10px",
-                      background: "rgba(255, 255, 255, 0.2)",
-                      borderRadius: "5px",
-                      marginBottom: "5px",
-                      color: "white",
-                      textAlign: "center",
-                      fontSize: "16px",
-                      transition: "background 0.2s",
-                    }}
-                    onClick={() => handleNavigation(page.path)}
-                  >
-                    {page.name}
-                  </div>
-                ))
-              ) : (
-                <div
-                  style={{
-                    color: "white",
-                    textAlign: "center",
-                    fontSize: "16px",
-                    padding: "10px",
+              {/* Search Input */}
+              <div style={{ position: "relative" }}>
+                <input
+                  type="text"
+                  placeholder="Search for pages..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  style={inputStyle}
+                  autoFocus
+                />
+                <button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setIsOpen(false);
                   }}
+                  style={closeButtonStyle}
                 >
-                  No results found
+                  <X size={20} />
+                </button>
+              </div>
+              {/* Conditionally render results if searchTerm exists */}
+              {searchTerm && (
+                <div style={resultsContainerStyle}>
+                  {filteredPages.length > 0 ? (
+                    filteredPages.map((page, index) => (
+                      <div
+                        key={index}
+                        onClick={() => handleNavigation(page.path)}
+                        style={resultItemStyle}
+                      >
+                        {page.name}
+                      </div>
+                    ))
+                  ) : (
+                    <div style={noResultsStyle}>No results found</div>
+                  )}
                 </div>
               )}
             </div>
-          </div>
-        </div>
+          ) : (
+            // --- Full-Screen Modal Mode ---
+            <div
+              style={{
+                position: "fixed",
+                top: "0",
+                left: "0",
+                width: "100vw",
+                height: "100vh",
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                // Adjust blur strength here (currently 2.5rem)
+                backdropFilter: "blur(2.5rem)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                zIndex: 9999,
+              }}
+            >
+              <div ref={modalRef} style={searchContainerStyles}>
+                {/* Search Input */}
+                <div style={{ position: "relative" }}>
+                  <input
+                    type="text"
+                    placeholder="Search for pages..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={inputStyle}
+                    autoFocus
+                  />
+                  <button
+                    onClick={() => {
+                      setSearchTerm("");
+                      setIsOpen(false);
+                    }}
+                    style={closeButtonStyle}
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+                {/* Conditionally render results if searchTerm exists */}
+                {searchTerm && (
+                  <div style={resultsContainerStyle}>
+                    {filteredPages.length > 0 ? (
+                      filteredPages.map((page, index) => (
+                        <div
+                          key={index}
+                          onClick={() => handleNavigation(page.path)}
+                          style={resultItemStyle}
+                        >
+                          {page.name}
+                        </div>
+                      ))
+                    ) : (
+                      <div style={noResultsStyle}>No results found</div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

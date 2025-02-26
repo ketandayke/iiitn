@@ -31,7 +31,7 @@ const News = ({ data }) => {
                 <div className="text-center mt-8">
                     <button
                         onClick={() => navigate('/latest')}
-                        className="bg-blue-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg text-lg shadow-md hover:shadow-lg"
+                        className="bg-blue-700 hover:bg-blue-900 cursor-pointer text-white font-semibold px-6 py-3 rounded-lg text-lg shadow-md hover:shadow-lg"
                     >
                         More campus news
                     </button>

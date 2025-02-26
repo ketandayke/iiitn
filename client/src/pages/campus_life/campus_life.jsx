@@ -10,43 +10,33 @@ export default function Facilities() {
     { name: "Computer Programming Lab", image: "../../../images/12.jpg" },
     { name: "Database Lab", image: "../../../images/13.jpg" },
     { name: "Data Structure & Algorithm Lab", image: "../../../images/14.jpg" },
-    { name: "Nano SciTech Lab", image: "../../../images/15.png" },
   ];
 
   return (
     <div className="bg-gradient-to-b from-blue-300 to-black min-h-screen p-10">
       {/* Title */}
-      <h1 className="text-center text-5xl font-poetsen text-gray-900 mt-25 mb-10">
-        FACILITIES
+      <h1 className="text-center text-5xl font-poetsen text-white mt-25 mb-10">
+        CAMPUS LIFE
       </h1>
 
-      {/* First Image */}
-      <div className="flex justify-center mb-16">
-        <img
-          src="../../../images/top2.png"
-          alt="Campus View"
-          className="w-full max-w-7xl h-auto rounded-lg shadow-2xl"
-        />
-      </div>
-
       {/* Facilities Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="max-w-8xl mx-auto grid grid-cols-1 grid-cols-2 gap-30 p-16">
         {facilities.map((facility, index) => (
           <div
             key={index}
-            className="p-6 rounded-2xl shadow-lg border border-gray-300 hover:shadow-2xl transition duration-300 flex flex-col items-center"
+            className="p-1 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 flex flex-col items-center"
             style={{
-              background: "linear-gradient(to bottom, #0071D6, #0045B6, #152D5F)", // Softer WGB Gradient
+              background: "#0071D6", // Softer WGB Gradient
             }}
           >
             <img
               src={facility.image}
               alt={facility.name}
-              className="w-full h-48 object-cover rounded-md mb-4"
+              className="w-full h-[30rem] object-cover rounded-2xl"
             />
-            <h2 className="text-2xl font-poetsen text-white text-center">
+            {/* <h2 className="text-2xl font-poetsen text-white text-center">
               {facility.name}
-            </h2>
+            </h2> */}
           </div>
         ))}
       </div>
