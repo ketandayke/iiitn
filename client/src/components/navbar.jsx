@@ -1,5 +1,3 @@
-
-
 // import React from "react";
 // import { HamburgerMenu } from "./index";
 // import { SearchBar } from "./index";
@@ -66,7 +64,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, menuOpen]);
 
@@ -78,7 +76,10 @@ export default function Navbar() {
     >
       <div className="max-w-[90%] relative h-full flex justify-between items-center mx-auto">
         {/* Hamburger Menu */}
-        <HamburgerMenu className="absolute top-8 w-[2.5rem] h-10 xl:w-[3rem] xl:h-10 cursor-pointer" setMenuOpen={setMenuOpen} />
+        <HamburgerMenu
+          className="absolute top-8 w-[2.5rem] h-10 xl:w-[3rem] xl:h-10 cursor-pointer"
+          setMenuOpen={setMenuOpen}
+        />
 
         {/* Logo & Text */}
         <div className="h-full flex items-center gap-2 px-2">
@@ -89,8 +90,8 @@ export default function Navbar() {
               className="w-12 h-12 md:w-20 md:h-20 cursor-pointer"
             />
           </Link>
-          <div className="hidden lg:block">
-            <h2 className="text-black text-xl whitespace-nowrap">
+          <div className="hidden lg:block ">
+            <h2 className="text-black font-bold text-4xl whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान, नागपुर
             </h2>
             <h2 className="text-blue-600 font-bold text-2xl">
