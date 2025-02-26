@@ -14,14 +14,14 @@ export default function Facilities() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-blue-300 to-black min-h-screen p-10">
+    <div className="bg-white min-h-screen p-10">
       {/* Title */}
       <h1 className="text-center text-5xl font-poetsen text-gray-900 mt-25 mb-10">
         FACILITIES
       </h1>
 
       {/* First Image */}
-      <div className="flex justify-center mb-16">
+      <div className="flex justify-center mb-16 w-full bg-gray-200 py-16">
         <img
           src="../../../images/top2.png"
           alt="Campus View"
