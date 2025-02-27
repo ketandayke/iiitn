@@ -52,6 +52,7 @@ import GuestHouseQuickLinks from "./footer/guestHouseLinks";
 import AdminDashboard from "./admin/adminDashboard";
 import ManageHome from "./admin/manageHome";
 import ManageLatest from "./admin/manageLatest";
+import AcademicDetails from "./MoreAcad";
 export {
   Homepage,
   Director,
@@ -106,6 +107,6 @@ export {
   // AdminLogin,
   AdminDashboard,
   ManageHome,
-  ManageLatest
-  
+  ManageLatest,
+  AcademicDetails
 };
