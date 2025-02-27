@@ -23,6 +23,7 @@ const Glance = () => {
           <li>TANTRAFIESTA &gt;</li>
           <li>E-SUMMIT &gt;</li>
           <li>KSHITIJ &gt;</li>
+          <li>CLUBS &gt;</li>
         </ul>
 
         {/* Social Media Links */}

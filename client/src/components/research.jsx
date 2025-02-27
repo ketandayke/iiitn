@@ -4,8 +4,8 @@ import React from "react";
 const Research = () => {
   return (
     <section className="research">
-      <h2 className="research-title">Research</h2>
-      <p className="research-description">
+      <h2 className="font-black text-4xl">Research</h2>
+      <p className="text-2xl my-2">
         Driving discoveries vital to our world, our health, and our <br />
         intellectual life.
       </p>
