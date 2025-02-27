@@ -73,6 +73,7 @@ function App() {
           <Route path="/latest" element={<LatestUpdates />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/add-review" element={<ReviewForm />} />
+          <Route path="/Academics" element={<AcademicDetails />} />
 
           {/* 🏢 Placement Routes */}
           <Route path="/placement/about" element={<PlacementAboutUs />} />

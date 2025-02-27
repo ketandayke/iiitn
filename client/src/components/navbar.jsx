@@ -76,10 +76,14 @@ export default function Navbar() {
     >
       <div className="max-w-[90%] relative h-full flex justify-between items-center mx-auto">
         {/* Hamburger Menu */}
+<<<<<<< HEAD
+        <HamburgerMenu className="absolute top-8 w-[2.5rem] cursor-pointer" setMenuOpen={setMenuOpen} />
+=======
         <HamburgerMenu
           className="absolute top-8 w-[2.5rem] h-10 xl:w-[3rem] xl:h-10 cursor-pointer"
           setMenuOpen={setMenuOpen}
         />
+>>>>>>> 23b84f5efd616ad623b0f8a34398969703a6fb77
 
         {/* Logo & Text */}
         <div className="h-full flex items-center gap-2 px-2">
