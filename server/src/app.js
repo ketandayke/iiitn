@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import adminRouter from "./routes/admin.routes.js";
 import alumniRouter from "./routes/alumni.routes.js";
+import academicProgramRouter from "./routes/academicPrograms.routes.js";
 
 dotenv.config()
 const app = express();
@@ -25,6 +26,7 @@ app.get("/",(req,res)=>{
 app.use("/api/v1/admin",adminRouter);
 app.use("/api/v1/alumni",alumniRouter);
 app.use("/api/v1/page",adminRouter);
+app.use("/api/v1/academic-program",academicProgramRouter)
 app.use("error",errorHandler);
 
 

@@ -48,10 +48,12 @@ import {
   GuestHouseQuickLinks,
   AdminDashboard,
   ManageHome,
-  ManageLatest
+  ManageLatest,
+  AcademicDetails
   // AdminLogin
 } from "./pages/index";
 import { Navbar } from "./components/index.js";
+import ManageAcademicPrograms from "./pages/admin/manageAcademicProgram.jsx";
 
 function App() {
   return (
@@ -69,6 +71,7 @@ function App() {
           <Route path="/latest" element={<LatestUpdates />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/add-review" element={<ReviewForm />} />
+          <Route path="/Academics" element={<AcademicDetails />} />
 
           {/* Placement Routes */}
           <Route path="/placement/about" element={<PlacementAboutUs />} />
@@ -122,6 +125,7 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/manage-home" element={<ManageHome />} />
           <Route path="/admin/manage-latest" element={<ManageLatest />} />
+          <Route path="/admin/manage-academic-programs" element={<ManageAcademicPrograms/>} />
         </Routes>
       </Router>
     </>

@@ -14,14 +14,14 @@ export default function Facilities() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen p-10">
+    <div className="bg-white min-h-screen p-10">
       {/* Title */}
       <h1 className="text-center text-5xl font-poetsen text-gray-900 mt-25 mb-10">
         FACILITIES
       </h1>
 
       {/* First Image */}
-      <div className="flex justify-center mb-16">
+      <div className="flex justify-center mb-16 w-full bg-gray-200 py-16">
         <img
           src="../../../images/top2.png"
           alt="Campus View"
@@ -36,7 +36,7 @@ export default function Facilities() {
             key={index}
             className="p-6 rounded-2xl shadow-lg border border-gray-300 hover:shadow-2xl transition duration-300 flex flex-col items-center"
             style={{
-              background: "linear-gradient(to bottom, white, #d9d9d9, #a3c3e6)", // Softer WGB Gradient
+              background: "linear-gradient(to bottom, #0071D6, #0045B6, #152D5F)", // Softer WGB Gradient
             }}
           >
             <img
@@ -44,7 +44,7 @@ export default function Facilities() {
               alt={facility.name}
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h2 className="text-2xl font-poetsen text-gray-800 text-center">
+            <h2 className="text-2xl font-poetsen text-white text-center">
               {facility.name}
             </h2>
           </div>
