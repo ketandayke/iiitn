@@ -1,50 +1,55 @@
-import {react,createContext,useContext,axios} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import api from "../utils/axiosInstance"; // ✅ Centralized API instance
 
 const AdminContext = createContext();
 
-export const useAdmin = useContext(AdminContext);
-export const AdminProvider=({children})=>{
-    const [admin,setAdmin] =useState(null);
-    const [loading,setLoading] =useState(true);
+export const useAdmin = () => useContext(AdminContext);
 
-    useEffect(()=>{
-        const checkAuth=async()=>{
-            try {
-                const response=await axios.get(`${import.meta.env.VITE_API_URL}/admin/profile`,{
-                    withCredentials:true
-                })
-                setAdmin(response.data);
-                
-            } catch {
-                setAdmin(null)
-            }finally{
-                setLoading(false);
-            }
+export const AdminProvider = ({ children }) => {
+    const [admin, setAdmin] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    // ✅ **Check Admin Authentication**
+    const checkAuth = async () => {
+        try {
+            const response = await api.get("/admin/profile", { withCredentials: true });
+            setAdmin(response.data.data); // ✅ Extract admin details correctly
+        } catch (error) {
+            console.error("Auth check failed:", error.response?.data?.message);
+            setAdmin(null);
+        } finally {
+            setLoading(false);
         }
+    };
+
+    useEffect(() => {
         checkAuth();
+    }, []);
 
-    },[])
+    // ✅ **Admin Login**
+    const login = async ({ email, password }) => {
+        try {
+            await api.post("/admin/login", { email, password }, { withCredentials: true });
+            await checkAuth(); // ✅ Refresh admin state
+        } catch (error) {
+            console.error("Login failed:", error.response?.data?.message);
+            throw new Error(error.response?.data?.message || "Login error");
+        }
+    };
 
-    const login =async({email,password})=>{
-         await axios.post(`${import.meta.env.VITE_API_URL}/admin/login`,
-            {email,password},
-            {withCredentials:true}
-         )
+    // ✅ **Admin Logout**
+    const logout = async () => {
+        try {
+            await api.post("/admin/logout", {}, { withCredentials: true });
+            setAdmin(null);
+        } catch (error) {
+            console.error("Logout failed:", error.response?.data?.message);
+        }
+    };
 
-         await checkAuth();
-    }
-
-    const logout =async()=>{
-        await axios.post(`${import.meta.env.VITE_API_URL}/admin/logout`,
-            {withCredentials:true}
-        )
-        setAdmin(null);
-    }
-
-    return(
-        <AdminContext.Provider value={{admin,setAdmin,loading,setLoading,login,logout}}>
+    return (
+        <AdminContext.Provider value={{ admin, loading, login, logout }}>
             {children}
         </AdminContext.Provider>
-    )
-
-}
+    );
+};

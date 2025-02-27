@@ -21,8 +21,8 @@ export default function Homepage() {
             try {
                 const [heroResponse,academicResponse,programsResponse,missionResponse, counterResponse, glanceResponse, latestResponse] = await Promise.all([
                     api.get("/admin/page/home/hero"),
-                    api.get("admin/page/home/academic"),
-                    api.get("academic-program/home/academic"),
+                    api.get("/admin/page/home/academic"),
+                    api.get("/academic-program/home/academic"),
                     api.get("/admin/page/home/mission"),
                     api.get("/admin/page/home/counters"),
                     api.get("/admin/page/home/iiitn-at-a-glance"),
@@ -36,6 +36,7 @@ export default function Homepage() {
                 setCounterData(counterResponse.data.data.content || []);
                 setGlanceData(glanceResponse.data.data.content || []);
                 setLatestSections(latestResponse.data.data || []); // Store all latest sections
+                console.log("hero data",heroResponse);
                 console.log("programs data",programsResponse.data.data);
             } catch (error) {
                 console.error("Error fetching initial data:", error);

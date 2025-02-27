@@ -7,7 +7,7 @@ const ManageHome = () => {
 
     return (
         <div className="w-full bg-gray-100">
-            <div className="w-[90%] mx-auto">
+            <div className="w-[90%] pt-[4rem] mx-auto">
                 <div className="mt-[6rem] w-[90%] min-h-screen mx-auto">
                     <h1 className="md:text-3xl text-2xl font-bold mb-6">Manage Home Page</h1>
 

@@ -48,10 +48,11 @@ import Location from "./footer/location";
 import Tender from "./footer/tender";
 import Recruitment from "./footer/recruitment";
 import GuestHouseQuickLinks from "./footer/guestHouseLinks";
-// import AdminLogin from "./admin/adminLogin";
+import AdminLogin from "./admin/adminLogin";
 import AdminDashboard from "./admin/adminDashboard";
 import ManageHome from "./admin/manageHome";
 import ManageLatest from "./admin/manageLatest";
+import AdminProfile from "../components/adminProfile";
 export {
   Homepage,
   Director,
@@ -103,9 +104,10 @@ export {
   Tender ,
   Recruitment ,
   GuestHouseQuickLinks,
-  // AdminLogin,
+  AdminLogin,
   AdminDashboard,
   ManageHome,
-  ManageLatest
+  ManageLatest,
+  AdminProfile
   
 };

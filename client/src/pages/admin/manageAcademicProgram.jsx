@@ -86,7 +86,7 @@ const ManageAcademicPrograms = () => {
                         required
                     >
                         <option value="">Select Degree Type</option>
-                        <option value="UG">Undergraduate</option>
+                        <option value="Undergraduate">Undergraduate</option>
                         <option value="PhD">PhD</option>
                         <option value="Student Exchange">Student Exchange</option>
                     </select>

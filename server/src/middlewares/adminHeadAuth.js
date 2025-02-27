@@ -1,21 +1,26 @@
 import jwt from "jsonwebtoken";
-import ApiError from "../utils/apiError.js"
-const adminHeadAuth = asyncHandler(async(role=null,req,res,next)=>{
-    try {
-        const token = req.cookies?.accessToken || req.headers.authorization().replace("Bearer","").trim()
-        if(!token){
-            throw new ApiError(401,"Unauthorized")
-        }
-        const decodedToken = jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);
-        req.admin=decodedToken;
-        if(roll && req.admin.role!=role){
-            throw new ApiError(401,"Unauthorized")
-        }
-        next();
-    } catch (error) {
-        next(error)
+import asyncHandler from "express-async-handler";
+import { Admin } from "../models/admin.model.js";
+import { ApiError } from "../utils/apiError.js";
+
+// ✅ **Middleware to Verify Admin JWT Token**
+export const verifyAdminToken = asyncHandler(async (req, res, next) => {
+    const token = req.cookies.accessToken;
+
+    if (!token) {
+        return next(new ApiError(401, "Unauthorized! Token not provided."));
     }
 
-}) 
+    try {
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        req.admin = await Admin.findById(decoded._id).select("-password -refreshToken");
 
-export default adminHeadAuth;
+        if (!req.admin) {
+            return next(new ApiError(401, "Unauthorized! Admin not found."));
+        }
+
+        next();
+    } catch (error) {
+        return next(new ApiError(403, "Forbidden! Invalid token."));
+    }
+});
