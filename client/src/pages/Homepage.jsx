@@ -19,6 +19,8 @@ import Research from "../components/research";
 
 export default function Homepage() {
   const [heroData, setHeroData] = useState([]);
+  const [academicData,setAcademicData] =useState([]);
+  const [programs,setPrograms] =useState([]);
   const [missionData, setMissionData] = useState([]);
   const [counterData, setCounterData] = useState([]);
   const [latestSections, setLatestSections] = useState([]);
@@ -31,12 +33,15 @@ export default function Homepage() {
       try {
         const [
           heroResponse,
+          academicResponse,
           missionResponse,
           counterResponse,
           glanceResponse,
           latestResponse,
         ] = await Promise.all([
           api.get("/admin/page/home/hero"),
+          api.get("/admin/page/home/academic"),
+          api.get("/academic-program/home/academic"),
           api.get("/admin/page/home/mission"),
           api.get("/admin/page/home/counters"),
           api.get("/admin/page/home/iiitn-at-a-glance"),
@@ -44,6 +49,8 @@ export default function Homepage() {
         ]);
 
         setHeroData(heroResponse.data.data.content || []);
+        setAcademicData(academicResponse.data.data.content);
+        setAcademicData(programs.data.data);
         setMissionData(missionResponse.data.data.content || []);
         setCounterData(counterResponse.data.data.content || []);
         setGlanceData(glanceResponse.data.data.content || []);
@@ -68,7 +75,7 @@ export default function Homepage() {
   return (
     <>
       <Hero data={heroData} />
-      <AcademicSection />
+      <AcademicSection data={academicData} programs={programs} />
       <Mission data={missionData} counterData={counterData} />
       <Research />
       <AchievementsSection />
