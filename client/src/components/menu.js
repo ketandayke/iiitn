@@ -47,6 +47,7 @@ const menuItems = [
     {
       title: "Admin",
       submenu: [
+        {name:"Profile",link:"admin/profile"},
         { name: "Dashboard", link: "/admin/Dashboard" },
         { name: "Manage Home", link: "/admin/manage-home" },
         { name: "Manage Latest", link: "/admin/manage-latest" },

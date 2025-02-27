@@ -16,7 +16,7 @@ const AdminProfile = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-[12rem] p-6 bg-white shadow-lg rounded-lg">
+        <div className="max-w-md mx-auto mt-[12rem] p-6 bg-gray-200 shadow-lg rounded-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Admin Profile</h2>
             <p><strong>Name:</strong> {admin.name}</p>
             <p><strong>Email:</strong> {admin.email}</p>

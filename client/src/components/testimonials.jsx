@@ -15,7 +15,7 @@ const Testimonial = () => {
       className="testimonial-profile"
       style={{ width: "200px", height: "200px", objectFit: "cover", borderRadius: "50%", marginBottom: "15px" }}
     />
-    <p className="testimonial-quote">
+    <p className="testimonial-quote text-blue-600 font-extrabold">
       "The campus environment and supportive faculty made my journey memorable."
     </p>
     <h3 className="testimonial-name">Ishita Patel</h3>

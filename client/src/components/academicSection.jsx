@@ -26,7 +26,7 @@ export default function AcademicSection({ data = [], programs = {} }) {
                 </div>
 
                 {/* ✅ Display Only One Box per Degree Type */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="w-full flex justify-center lg:justify-between flex-wrap gap-4">
                     {Object.keys(uniqueDegreePrograms).map((degreeType, index) => (
                         <Box
                             key={index}

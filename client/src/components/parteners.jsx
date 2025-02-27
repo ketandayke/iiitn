@@ -22,10 +22,10 @@ export default function Partners() {
               alt={partner.name}
               className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-              <span className="text-white font-bold text-lg">
+            <div className="absolute inset-0 bg-opacity-40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+              {/* <span className="text-white font-bold text-lg">
                 {partner.name}
-              </span>
+              </span> */}
             </div>
           </div>
         ))}

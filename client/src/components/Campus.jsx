@@ -74,7 +74,7 @@ const StudentLife = () => {
 
       {/* Call to Action */}
       <div className="relative z-10 text-center mt-12">
-        <button className="bg-blue-600 text-white px-6 py-3 text-lg font-semibold rounded-full hover:bg-red-700 transition">
+        <button className="bg-blue-500 text-white px-6 py-3 text-lg font-semibold rounded-full hover:bg-blue-600 transition">
           More about Campus Life
         </button>
       </div>
