@@ -32,7 +32,7 @@ export default function Activities() {
         <li className="mb-4">
           National Level Technical Event:{" "}
           <a
-            href="https://tantrafiesta.iiitn.ac.in"
+            href="../../../pdfs/13.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 font-semibold hover:underline"
@@ -54,7 +54,7 @@ export default function Activities() {
         <li className="mb-4">
           Institute Annual Sports Gathering (IG):{" "}
           <a
-            href="https://sports.iiitn.ac.in"
+            href="../../../pdfs/15.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 font-semibold hover:underline"

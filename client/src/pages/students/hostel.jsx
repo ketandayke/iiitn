@@ -20,22 +20,34 @@ export default function Hostel() {
       <div className="bg-white p-6 rounded-xl shadow-xl text-lg">
         <ul className="list-disc pl-6">
           <li className="mb-2">
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/19.pdf"
+              className="text-blue-500 hover:underline"
+            >
               Anti Ragging Rules
             </a>
           </li>
           <li className="mb-2">
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/20.pdf"
+              className="text-blue-500 hover:underline"
+            >
               Institute Rules
             </a>
           </li>
           <li className="mb-2">
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/21.pdf"
+              className="text-blue-500 hover:underline"
+            >
               Hostel Rules
             </a>
           </li>
           <li>
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/22.pdf"
+              className="text-blue-500 hover:underline"
+            >
               Institute Do's and Don'ts
             </a>
           </li>

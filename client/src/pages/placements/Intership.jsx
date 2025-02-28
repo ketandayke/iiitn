@@ -53,7 +53,7 @@ export default function Internship() {
           <li className="mb-4">
             Internship Application Form{" "}
             <a
-              href="/internship-application.pdf"
+              href="../../../pdfs/9.pdf"
               className="text-blue-600 font-semibold hover:underline"
             >
               Download
@@ -62,7 +62,7 @@ export default function Internship() {
           <li className="mb-4">
             Internship Joining Application{" "}
             <a
-              href="/internship-joining.pdf"
+              href="../../../pdfs/10.pdf"
               className="text-blue-600 font-semibold hover:underline"
             >
               Download
@@ -71,7 +71,7 @@ export default function Internship() {
           <li className="mb-4">
             Internship Report Submission Guideline{" "}
             <a
-              href="/internship-report.pdf"
+              href="../../../pdfs/11.docx"
               className="text-blue-600 font-semibold hover:underline"
             >
               Download
@@ -80,7 +80,7 @@ export default function Internship() {
           <li className="mb-4">
             Internship Evaluation Form{" "}
             <a
-              href="/internship-evaluation.pdf"
+              href="../../../pdfs/12.pdf"
               className="text-blue-600 font-semibold hover:underline"
             >
               Download

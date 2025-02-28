@@ -53,9 +53,12 @@ import {
   ManageHome,
   ManageLatest,
   AdminLogin,
-  AdminProfile
+  AdminProfile,
+  
 } from "./pages/index";
 import ManageAcademicPrograms from "./pages/admin/manageAcademicProgram.jsx";
+import AcademicDetails from "./pages/MoreAcad.jsx";
+import Departments from "./pages/Department.jsx";
 
 function App() {
   return (
@@ -73,6 +76,10 @@ function App() {
           <Route path="/latest" element={<LatestUpdates />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/add-review" element={<ReviewForm />} />
+          <Route path="/academics" element={<AcademicDetails />} />
+          <Route path="/departments" element={<Departments />} />
+          
+          {/* <Route path="/research" element={<Research />} /> */}
 
           {/* 🏢 Placement Routes */}
           <Route path="/placement/about" element={<PlacementAboutUs />} />

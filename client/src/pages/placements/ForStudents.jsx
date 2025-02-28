@@ -52,7 +52,10 @@ export default function ForStudents() {
             </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-blue-600 font-semibold hover:underline">
+            <a
+              href="../../../pdfs/7.pdf"
+              className="text-blue-600 font-semibold hover:underline"
+            >
               Placement Policy Click Here...
             </a>
           </li>
@@ -62,7 +65,10 @@ export default function ForStudents() {
             </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-blue-600 font-semibold hover:underline">
+            <a
+              href="../../../pdfs/8.pdf"
+              className="text-blue-600 font-semibold hover:underline"
+            >
               Semester Internship Evaluation Guidelines Click Here...
             </a>
           </li>

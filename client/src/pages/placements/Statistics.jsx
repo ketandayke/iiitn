@@ -1,122 +1,137 @@
 import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 
-export default function Statistics() {
-  const placementData = [
-    { year: "2024", highest: 47, average: 14, median: 12, total: 154 },
-    { year: "2023", highest: 90, average: 14, median: 12, total: 140 },
-    { year: "2022", highest: 40, average: 12.04, median: 10, total: 130 },
-    { year: "2021", highest: 46.75, average: 8.44, median: 7, total: 120 },
-    { year: "2020", highest: 20, average: 8.5, median: 6, total: 110 },
-  ];
-
-  const topRecruiters = [
-    "Siemens Healthineers",
-    "Reliance Jio",
-    "Clever Tap",
-    "Affluence Infosystems Ltd",
-    "ARM Embedded Systems",
-    "Tech Walnut LLP",
-    "TCS (R&I Profile)",
-    "Swabhav Technologies",
-    "TCS (Digital Profile)",
-    "Click2Cloud Inc",
-    "TCS NQT (Ninja Profile)",
-    "WileyNXT",
-    "Manipal Global Education Ltd",
-    "Power Exchange India Ltd",
-    "L&T Infotech",
-    "Virtusa",
-    "Persistent Systems Ltd",
-    "Ubisoft",
-    "ACT FiberNet",
-  ];
-
+export default function WhyRecruitIIITN() {
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-center text-5xl font-bold text-blue-700 mt-25 mb-10">
-        Placement Statistics
+    <div className="bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen px-16 py-20">
+      {/* Title */}
+      <h1 className="text-center text-6xl font-bold text-gray-800 mt-25 mb-20">
+        WHY RECRUIT FROM IIITN NAGPUR?
       </h1>
-      <div className="flex justify-center mb-10">
+
+      {/* Image Placeholder */}
+      <div className="flex justify-center mb-20">
         <img
           src="../../../images/ThumbnailImage.jpg"
           alt="Placement Office"
-          className="w-full max-w-6xl h-auto rounded-lg shadow-xl"
+          className="w-full max-w-6xl h-auto rounded-xl shadow-2xl"
         />
       </div>
-      ;{/* Graph Section */}
-      <div className="bg-white p-6 rounded-xl shadow-xl mb-10">
-        <h2 className="text-2xl font-semibold text-gray-800">
-          Placement Trends
-        </h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={placementData}>
-            <XAxis dataKey="year" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar
-              dataKey="highest"
-              fill="#3182CE"
-              name="Highest Package (LPA)"
-            />
-            <Bar
-              dataKey="average"
-              fill="#82ca9d"
-              name="Average Package (LPA)"
-            />
-            <Bar dataKey="median" fill="#ffc658" name="Median Package (LPA)" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-      {/* Table Section */}
-      <div className="bg-white p-6 rounded-xl shadow-xl">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Batch-Wise Data
-        </h2>
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-blue-600 text-white">
-              <th className="p-4">Batch</th>
-              <th className="p-4">Highest Package (LPA)</th>
-              <th className="p-4">Average Package (LPA)</th>
-              <th className="p-4">Median Package (LPA)</th>
-              <th className="p-4">Companies Visited</th>
-            </tr>
-          </thead>
+
+      {/* Content Section */}
+      <div className="w-full max-w-full mx-auto bg-white px-20 py-16 rounded-2xl shadow-2xl">
+        <table className="w-full border-separate border-spacing-y-12">
           <tbody>
-            {placementData.map((batch) => (
-              <tr className="border-b" key={batch.year}>
-                <td className="p-4">{batch.year}</td>
-                <td className="p-4">{batch.highest}</td>
-                <td className="p-4">{batch.average}</td>
-                <td className="p-4">{batch.median}</td>
-                <td className="p-4">{batch.total}</td>
-              </tr>
-            ))}
+            {/* Admission */}
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 w-1/3 rounded-l-xl">
+                ADMISSION
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                Established by MHRD, Govt of Maharashtra, and Industry partners.
+                Declared as Institution of National Importance by Act of
+                Parliament. Admissions happen through JoSAA. Only the top 2%
+                candidates taking JEE Mains Exam make it to IIITN.
+              </td>
+            </tr>
+
+            {/* Industry Academia Collaboration */}
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 rounded-l-xl">
+                INDUSTRY ACADEMIA COLLABORATION
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                Tie-up with Tata Consultancy Services Ltd as an Industry
+                Partner. MoU with ESIEE Paris for exchange programmes.
+              </td>
+            </tr>
+
+            {/* Curriculum */}
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 rounded-l-xl">
+                CURRICULUM
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                Industry-relevant dynamic curriculum designed by the Board of
+                Studies, consisting of tech experts from the IT industry. Core
+                subjects from the 1st semester, choice-based credit system,
+                industry internships, and credit-based online certifications.
+                <div className="mt-8 space-x-6">
+                  <button
+                    className="border border-gray-600 text-white bg-gray-800 px-6 py-3 rounded-xl text-lg font-bold hover:bg-gray-700"
+                    onClick={() => window.open("../../../pdfs/4.pdf", "_blank")}
+                  >
+                    View CSE Curriculum
+                  </button>
+
+                  <button className="border border-gray-600 text-white bg-gray-800 px-6 py-3 rounded-xl text-lg font-bold hover:bg-gray-700">
+                    View ECE Curriculum
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            {/* Research Environment */}
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 rounded-l-xl">
+                RESEARCH ENVIRONMENT
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                Research focuses on solving IT industry problems. Industry
+                professionals can pursue research under Industry-Academia
+                Collaboration.
+                <br />
+                <br />
+                <strong>Key Research Areas:</strong>
+                <ul className="list-disc list-inside mt-6 ml-6">
+                  <li>Deep Learning, Machine Learning, Data Mining, IoT</li>
+                  <li>Signal, Image & Video Processing, Wireless Networks</li>
+                  <li>Nanoscience, Applied Mathematics, Engineering Physics</li>
+                </ul>
+              </td>
+            </tr>
+
+            {/* Student Publications
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 rounded-l-xl">
+                STUDENT PUBLICATIONS
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                <button className="border border-gray-600 text-white bg-gray-800 px-6 py-3 rounded-xl text-lg font-bold hover:bg-gray-700">
+                  View Student Publications
+                </button>
+              </td>
+            </tr> */}
+
+            {/* Clubs and Communities */}
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 rounded-l-xl">
+                CLUBS AND COMMUNITIES AT IIITN
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                <strong>Technical:</strong> Ack-Z (White hat security club),
+                United Gamers, DotSlash (Programming).
+                <br />
+                <strong>Cultural:</strong> Music Club, Talartsdy (Art Club),
+                Beats Spark (Dance Club).
+                <br />
+                <strong>Academics & Research:</strong> REAP (Research Club), 7C
+                Club (Public Speaking & Leadership).
+              </td>
+            </tr>
+
+            {/* Flagship Annual Events */}
+            <tr className="bg-gray-50 rounded-xl shadow-lg">
+              <th className="p-6 text-left text-2xl font-semibold text-white bg-blue-600 rounded-l-xl">
+                FLAGSHIP ANNUAL EVENTS
+              </th>
+              <td className="p-6 text-xl text-gray-700 leading-relaxed rounded-r-xl">
+                <strong>ABHIVYAKTI</strong> – The Annual Cultural Festival
+                <br />
+                <strong>TANTRAFIESTA</strong> – National Level Technical Event
+              </td>
+            </tr>
           </tbody>
         </table>
-      </div>
-      {/* Companies Section */}
-      <div className="mt-10">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Top Recruiters
-        </h2>
-        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-disc pl-5">
-          {topRecruiters.map((company, index) => (
-            <li key={index} className="text-lg font-medium text-gray-700">
-              {company}
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );

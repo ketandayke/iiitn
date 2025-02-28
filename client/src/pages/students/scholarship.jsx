@@ -23,17 +23,26 @@ export default function Scholarships() {
         </h2>
         <ul className="list-disc pl-6 mb-6">
           <li>
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/16.pdf"
+              className="text-blue-500 hover:underline"
+            >
               Hindi Version
             </a>
           </li>
           <li>
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/17.pdf"
+              className="text-blue-500 hover:underline"
+            >
               English Version
             </a>
           </li>
           <li>
-            <a href="#" className="text-blue-500 hover:underline">
+            <a
+              href="../../../pdfs/18.pdf"
+              className="text-blue-500 hover:underline"
+            >
               Instruction Manual for NOS Schemes
             </a>
           </li>

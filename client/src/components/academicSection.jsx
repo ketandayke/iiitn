@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "./index";
-
+import {Link} from 'react-router-dom';
 export default function AcademicSection({ data = [], programs = {} }) {
     const sectionContent = data.find(item => item.isVisible) || {};
 
@@ -38,6 +38,9 @@ export default function AcademicSection({ data = [], programs = {} }) {
                         />
                     ))}
                 </div>
+                <div className="text-center mt-6">
+        <Link to="/Academics" className="px-6 py-2 bg-blue-500 text-white rounded">Learn More</Link>
+      </div>
             </div>
         </div>
     );

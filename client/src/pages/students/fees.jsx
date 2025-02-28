@@ -24,12 +24,18 @@ export default function Fees() {
 
         <ul className="list-disc list-inside space-y-3">
           <li>
-            <a href="#" className="text-blue-500 hover:underline font-semibold">
+            <a
+              href="../../../pdfs/25.pdf"
+              className="text-blue-500 hover:underline font-semibold"
+            >
               Academic Fees Details - Click Here
             </a>
           </li>
           <li>
-            <a href="#" className="text-blue-500 hover:underline font-semibold">
+            <a
+              href="../../../pdfs/26.pdf"
+              className="text-blue-500 hover:underline font-semibold"
+            >
               Hostel Fees Details - Click Here
             </a>
           </li>
@@ -44,13 +50,13 @@ export default function Fees() {
 
         <div className="space-y-4">
           <a
-            href="#"
+            href="https://iiitn.ac.in/admission.php?id=434"
             className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition block text-center"
           >
             Pay Academic Fees - Click Here
           </a>
           <a
-            href="#"
+            href="https://iiitn.ac.in/admission.php?id=435"
             className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition block text-center"
           >
             Pay Hostel Fees - Click Here

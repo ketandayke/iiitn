@@ -3,7 +3,7 @@ import React from "react";
 const researchData = [
   { id: 1, img: "../images/r1.jpg", title: "Research Area 1" },
   { id: 2, img: "../images/r21.jpg", title: "Research Area 2" },
-  { id: 3, img: "../images/r31.jpg", title: "Research Area 3" },
+  { id: 3, img: "../images/r3.jpg", title: "Research Area 3" },
 ];
 
 const Research = () => {
@@ -48,7 +48,7 @@ const Research = () => {
 
       {/* Button */}
       <a
-        href="/research"
+        href="/facilities"
         className="inline-block px-6 py-3 text-white bg-blue-600 rounded-lg font-bold text-lg mt-6 transition-colors hover:bg-blue-700"
       >
         Explore Research

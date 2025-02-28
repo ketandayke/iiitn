@@ -23,7 +23,10 @@ export default function Convocation() {
         </h2>
         <ul className="list-disc list-inside space-y-3 text-lg">
           <li>
-            <a href="#" className="text-blue-500 hover:underline font-semibold">
+            <a
+              href="https://www.youtube.com/watch?v=V3JdPVaihJE"
+              className="text-blue-500 hover:underline font-semibold"
+            >
               YouTube Link - Click Here
             </a>
           </li>
@@ -38,7 +41,7 @@ export default function Convocation() {
 
         <div className="mt-4">
           <a
-            href="#"
+            href="../../../pdfs/23.pdf"
             className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
           >
             3rd Convocation Invitation - Click Here
@@ -53,7 +56,10 @@ export default function Convocation() {
         </h2>
         <ul className="list-disc list-inside space-y-3 text-lg">
           <li>
-            <a href="#" className="text-blue-500 hover:underline font-semibold">
+            <a
+              href="https://www.youtube.com/watch?v=RVm3iyBhlS8"
+              className="text-blue-500 hover:underline font-semibold"
+            >
               YouTube Link - Click Here
             </a>
           </li>
@@ -67,7 +73,7 @@ export default function Convocation() {
 
         <div className="mt-4">
           <a
-            href="#"
+            href="../../../pdfs/24.pdf"
             className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
           >
             1st Convocation Invitation - Click Here

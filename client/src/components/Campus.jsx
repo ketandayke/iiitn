@@ -32,7 +32,10 @@ const StudentLife = () => {
             A residential campus with diverse housing, dining, and over 600
             student organizations.
           </p>
-          <a href="#" className="text-blue-600 mt-3 inline-block font-semibold">
+          <a
+            href="/students/activities"
+            className="text-blue-600 mt-3 inline-block font-semibold"
+          >
             Learn More &rarr;
           </a>
         </div>
@@ -49,7 +52,10 @@ const StudentLife = () => {
             Fostering a vibrant community where technology, innovation, and
             culture come together to inspire the leaders of tomorrow.
           </p>
-          <a href="#" className="text-blue-600 mt-3 inline-block font-semibold">
+          <a
+            href="/students/activities"
+            className="text-blue-600 mt-3 inline-block font-semibold"
+          >
             Explore More &rarr;
           </a>
         </div>
@@ -66,18 +72,21 @@ const StudentLife = () => {
             State-of-the-art fitness programs, sports, and wellness activities
             for students.
           </p>
-          <a href="#" className="text-blue-600 mt-3 inline-block font-semibold">
+          <a
+            href="/students/activities"
+            className="text-blue-600 mt-3 inline-block font-semibold"
+          >
             Find Out More &rarr;
           </a>
         </div>
       </div>
 
       {/* Call to Action */}
-      <div className="relative z-10 text-center mt-12">
-        <button className="bg-blue-500 text-white px-6 py-3 text-lg font-semibold rounded-full hover:bg-blue-600 transition">
+      {/* <div className="relative z-10 text-center mt-12">
+        <button className="bg-blue-600 text-white px-6 py-3 text-lg font-semibold rounded-full hover:bg-red-700 transition">
           More about Campus Life
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

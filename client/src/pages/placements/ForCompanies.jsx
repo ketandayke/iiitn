@@ -37,7 +37,10 @@ export default function ForCompanies() {
             </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="text-blue-600 font-semibold hover:underline">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdHnTqRwRCry212Zv44KS4EMfG_f6XWzYUKQ1h_AQwdvAH8VA/viewform"
+              className="text-blue-600 font-semibold hover:underline"
+            >
               Job Announcement Form Click Here....
             </a>
           </li>

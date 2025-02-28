@@ -9,7 +9,7 @@ const Achievements = () => {
       }}
     >
       {/* Dark Blurred Overlay for Readability */}
-      <div className="absolute inset-0 bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-lg"></div>
 
       {/* Section Title */}
       <h2 className="text-3xl sm:text-4xl font-bold mb-12 relative z-10 text-white">
@@ -48,9 +48,11 @@ const Achievements = () => {
           </p>
 
           {/* More Information Button */}
-          <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-            More Information
-          </button>
+          <a href="/latest">
+            <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+              More Information
+            </button>
+          </a>
         </div>
       </div>
     </div>
