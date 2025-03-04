@@ -1,8 +1,8 @@
-import {Router} from "express";
-const router=Router();
-import { registerAlumni } from "../controllers/alumni.controllers.js";
+import { Router } from "express";
+import { createAlumni, uploadAlumniImage } from "../controllers/alumni.controllers.js";
 
-// router.route("/register").post(registerAlumni);
+const router = Router();
 
+router.post("/create", uploadAlumniImage, createAlumni);
 
 export default router;

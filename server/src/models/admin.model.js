@@ -4,16 +4,29 @@ import jwt from "jsonwebtoken";
 
 const adminSchema = new Schema(
     {
-        name: { type: String, required: true },
-        email: { type: String, required: true, unique: true },
-        password: { type: String, required: true },
-        role: { type: String, enum: ["admin", "admin-head"], default: "admin" },
-        refreshToken: { type: String }
+        name: { 
+            type: String, 
+            required: true },
+            
+        email: { 
+            type: String, 
+            required: true, 
+            unique: true },
+
+        password: { 
+            type: String, 
+            required: true },
+
+        role: { 
+            type: String, 
+            enum: ["admin", "admin-head"], default: "admin" },
+
+        refreshToken: { 
+            type: String }
     },
     { timestamps: true }
 );
 
-// ✅ Fix `pre("save")` middleware (Use function keyword instead of arrow function)
 adminSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
         return next();
@@ -22,7 +35,7 @@ adminSchema.pre("save", async function (next) {
     next();
 });
 
-// ✅ Fix JWT methods
+
 adminSchema.methods.comparePassword = async function (password) {
     return await bcrypt.compare(password, this.password);
 };

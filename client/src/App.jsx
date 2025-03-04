@@ -54,6 +54,11 @@ import {
   ManageLatest,
   AdminLogin,
   AdminProfile,
+  AdministrativeHeadForm,
+  AdministrativePeopleForm,
+  GovernanceGroupsForm,
+  AlumniForm,
+  CampusGalleryUpload
   
 } from "./pages/index";
 import ManageAcademicPrograms from "./pages/admin/manageAcademicProgram.jsx";
@@ -62,11 +67,10 @@ import Departments from "./pages/Department.jsx";
 
 function App() {
   return (
-    <AdminProvider>  {/* ✅ Wrap the entire app with AdminProvider */}
+    <AdminProvider>  
       <Router>
         <Navbar />
         <Routes>
-          {/* 🌍 Public Routes */}
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/facilities" element={<Facilities />} />
@@ -81,7 +85,6 @@ function App() {
           
           {/* <Route path="/research" element={<Research />} /> */}
 
-          {/* 🏢 Placement Routes */}
           <Route path="/placement/about" element={<PlacementAboutUs />} />
           <Route path="/placement/why-recruit-iiitn" element={<WhyRecruitIIITN />} />
           <Route path="/placement/statistics" element={<Statistics />} />
@@ -90,7 +93,6 @@ function App() {
           <Route path="/placement/contact-tp" element={<ContactTP />} />
           <Route path="/placement/internship" element={<Internship />} />
 
-          {/* 🎓 Student Routes */}
           <Route path="/students/activities" element={<Activities />} />
           <Route path="/students/achievements" element={<Achievements />} />
           <Route path="/students/scholarships" element={<Scholarships />} />
@@ -101,7 +103,6 @@ function App() {
           <Route path="/students/convocation" element={<Convocation />} />
           <Route path="/students/fees" element={<Fees />} />
 
-          {/* ⚖️ Legal & Compliance Routes */}
           <Route path="/grievance" element={<Grievance />} />
           <Route path="/networking-complaint" element={<NetworkingComplaint />} />
           <Route path="/grievance-committee" element={<GrievanceCommitteeSCST />} />
@@ -109,8 +110,13 @@ function App() {
           <Route path="/internal-complaint" element={<InternalComplaint />} />
           <Route path="/sexual-harassment-policy" element={<SexualHarassmentPolicy />} />
           <Route path="/equal-opportunity" element={<EqualOpportunity />} />
+          <Route path="/consultancy" element={<Consultancy />} />
+          <Route path="/iic" element={<InstitutionInnovationCouncil />} />
+          <Route path="/official-doc" element={<OfficialDoc />} />
+          <Route path="/electoralliteracyClub" element={<ElectoralLiteracyClub />} />
+          <Route path="/guesthouse" element={<GuestHouse/>} />
+          <Route path="/pressrelease" element={<PressRelease/>} />
 
-          {/* 🏫 Quick Links */}
           <Route path="/institute-webmail" element={<InstituteWebmail />} />
           <Route path="/online-fees-payment" element={<OnlineFeesPayment />} />
           <Route path="/academic-calendar" element={<AcademicCalendar />} />
@@ -120,10 +126,13 @@ function App() {
           <Route path="/recruitment" element={<Recruitment />} />
           <Route path="/quick-links/guest-house" element={<GuestHouseQuickLinks />} />
 
-          {/* 🔐 Admin Login Route */}
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/adminisitrative-head-form" element={<AdministrativeHeadForm />} />
+          <Route path="/admin/adminisitrative-people-form" element={<AdministrativePeopleForm />} />
+          <Route path="/admin/governance-group-form" element={<GovernanceGroupsForm />} />
+          <Route path="/alumni-form" element={<AlumniForm/>} />
+          <Route path="/campus-upload" element={<CampusGalleryUpload/>} />
 
-          {/* 🔒 Protected Admin Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/admin/profile" element={<AdminProfile />} />\
             <Route path="/admin/Dashboard" element={<AdminDashboard />} />

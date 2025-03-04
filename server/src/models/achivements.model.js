@@ -1,11 +1,46 @@
 import {mongoose,Schema} from "mongoose";
 
-const AdmissionSchema = new Schema({
-    level: String, // "Undergraduate" | "Postgraduate"
-    eligibility: String,
-    process: String,
-    importantLinks: [{ name: String, url: String }],
-    pdfs: [{ name: String, url: String }] // JoSAA, CSAB PDFs
-});
-const Admission = mongoose.model("Admission", AdmissionSchema);
-export { Admission };
+const AchievmentSchema = new Schema({
+    year:{
+        type:Number,
+        required:true
+    },
+    category:{
+        type:String,
+        enum:["Student","Faculty","other"],
+    },
+    name:{
+        type:String,
+        required:true
+
+    },
+    title:{
+        type:String, //paper published,grant received,patent received ,competition won
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    relatedLinks:[
+        {
+            type:String
+        }
+    ],
+    associatedPeople:[
+        {
+            type:String
+        }
+    ],
+    department:{
+        type:String,
+        enum:["CSE","ECE","BASIC SCIENCE"],
+
+    }
+},
+{
+    timestamps:true
+}
+);
+
+const Achivements =mongoose.model("Achivements",AchievmentSchema);

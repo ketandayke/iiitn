@@ -1,48 +1,119 @@
 import { mongoose, Schema } from "mongoose";
 
-const AdmissionSchema = new Schema({
-    title: String, // e.g., "Undergraduate Admissions"
-    description: String, // Overview of admission process
-    cutoff: { name: String, pdf: String }, // Last year cutoff PDF
-
-    // Financial Aid
-    loanSchemes: [
-        { name: String, pdf: String } // SBI, Canara, Punjab, etc.
-    ],
-    scholarships: [
-        { name: String, pdf: String } // Various scholarship schemes
-    ],
-
-    // Admission Forms & Documents
-    forms: [
-        { name: String, pdf: String } // Admission forms, central formats, institute formats
-    ],
-    centralFormats: [
-        { name: String, pdf: String } // Central document formats
-    ],
-    instituteFormats: [
-        { name: String, pdf: String } // Institute-specific document formats
-    ],
-
-    // Fees Information
-    academicFees: { name: String, pdf: String }, // Academic fee details PDF
-    hostelFees: { name: String, pdf: String }, // Hostel fee structure PDF
-    feePaymentMethods: {
-        upiId: String, // UPI payment ID
-        qrCode: String // URL for QR scanner image
+const AdmissionDegreeSchema= new Schema({
+    title:{
+        type:String,   //degree type
+        required:true
     },
+    description:{
+        type:String,
+        required:true,
+    },
+    cutoff:[
+        {
+            name:{
+                type:String
+            },
+            pdf:{
+                pdf:String
+            }
 
-    // Rules & Regulations
-    academicRulebook: { name: String, pdf: String }, // Academic rulebook PDF
-    instituteRules: { name: String, pdf: String }, // Institute rules and regulations PDF
+        }  
+    ],
+    loanSchemes:[
+        {
+            name:{
+                type:String
+            },
+            pdf:{
+                pdf:String
+            }
 
-    // Links & Information
-    jossaLink: String, // Link to JoSAA counseling details
-    campusGallery: [String], // Array of image URLs
-    guestHouse: { name: String, pdf: String }, // Guest house details PDF
+        }  
+    ],
+    forms:[
+        {
+            name:{
+                type:String
+            },
+            pdf:{
+                pdf:String
+            }
 
-    contactUs: String // Contact details for admission queries
-});
+        }  
+    ],
+    centralFormates:[
+        {
+            name:{
+                type:String
+            },
+            pdf:{
+                pdf:String
+            }
 
-const Admission = mongoose.model("Admission", AdmissionSchema);
-export { Admission };
+        }  
+    ],
+    InstitueFormates:[
+        {
+            name:{
+                type:String
+            },
+            pdf:{
+                pdf:String
+            }
+
+        },
+    ],
+    AcademicFees:{
+        name:{
+            type:String,
+        },
+        pdf:{
+            type:String
+        }
+    },
+    HostelFees:{
+        name:{
+            type:String,
+        },
+        pdf:{
+            type:String
+        }
+    },
+    feesPaymentMethods:{
+        upiId:{
+            type:String,
+        },
+        qrCode:{
+            type:String
+        }
+    },
+    academicRuleBook:{
+        type:String,
+        pdf:String
+
+    },
+    InstituteRules:{
+        type:String,
+        pdf:String
+
+    },
+    importantLinks:[  //jossalinks ,csabLinks,guestHosuseLinks,Important Notices related to hostel
+        {
+            name:{
+                type:String,
+                required:true
+            },
+            pdf:{
+                type:String,
+                required:true
+            }
+        }
+    ]
+    
+    
+})
+
+
+const AdmissionDegree = mongoose.model("AdmissionDegree", AdmissionDegreeSchema);
+export { AdmissionDegree };

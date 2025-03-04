@@ -33,7 +33,8 @@ const getPage = asyncHandler(async(req,res,next)=>{
 });
 
 const getSection = asyncHandler(async (req, res, next) => {
-    try {console.log("this is section call",req.params);
+    try {
+        // console.log("this is section call",req.params);
         const { alias, sectionName } = req.params;
         const page = await Page.findOne({ alias });
         // console.log("this is page",page);

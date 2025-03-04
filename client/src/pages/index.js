@@ -53,6 +53,11 @@ import AdminDashboard from "./admin/adminDashboard";
 import ManageHome from "./admin/manageHome";
 import ManageLatest from "./admin/manageLatest";
 import AdminProfile from "../components/adminProfile";
+import AdministrativeHeadForm from "./admin/administrativeHead";
+import AdministrativePeopleForm from "./admin/administrativePeople";
+import GovernanceGroupsForm from "./admin/governanceGroup";
+import AlumniForm from "./forms/alumniForm";
+import CampusGalleryUpload from "./forms/campusGallery";
 export {
   Homepage,
   Director,
@@ -108,6 +113,11 @@ export {
   AdminDashboard,
   ManageHome,
   ManageLatest,
-  AdminProfile
+  AdminProfile,
+  AdministrativeHeadForm,
+  AdministrativePeopleForm,
+  GovernanceGroupsForm,
+  AlumniForm,
+  CampusGalleryUpload
   
 };
