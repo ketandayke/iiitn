@@ -29,5 +29,10 @@ app.use("/api/v1/page",adminRouter);
 app.use("/api/v1/academic-program",academicProgramRouter)
 app.use("error",errorHandler);
 
+import adminRoutes from "./routes/admin.routes.js";
+import facultyRoutes from "./routes/faculty.routes.js";
+
+app.use("/api/admin", adminRoutes);
+app.use("/api/faculty", facultyRoutes);
 
 export {app};

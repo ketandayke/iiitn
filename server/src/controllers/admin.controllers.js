@@ -3,6 +3,8 @@ import { ApiResponse } from "../utils/apiResponse.js";
 import { asyncHandler } from "../utils/asynHandler.js";
 import { Admin } from "../models/admin.model.js";
 import jwt from "jsonwebtoken";
+import { sendMail } from "../utils/sendMail.js";
+import crypto from "crypto"; // To generate random passwords
 
 // ✅ **Predefined Admin Credentials**
 const PREDEFINED_ADMIN = {
@@ -84,4 +86,44 @@ export const logoutAdmin = asyncHandler(async (req, res) => {
     res.clearCookie("refreshToken", { httpOnly: true, sameSite: "Lax" });
 
     res.status(200).json(new ApiResponse(200, "Logged out successfully"));
+});
+
+
+//create faculty and send pass on mails
+export const createFaculty = asyncHandler(async (req, res, next) => {
+    const { name, email, designation, contact } = req.body;
+
+    let faculty = await Faculty.findOne({ email });
+    if (faculty) return next(new ApiError(400, "Faculty already exists"));
+
+    // Random Password Generate
+    const password = crypto.randomBytes(6).toString("hex");
+
+    // Password ko hash karo before saving
+    const hashedPassword = await bcrypt.hash(password, 10);
+    
+    faculty = new Faculty({ name, email, designation, contact, password: hashedPassword });
+    await faculty.save();
+    
+    // Faculty ko mail bhejna
+    await sendMail(email, "Your Faculty Account Password", `Your password: ${password}`);
+
+    res.status(201).json(new ApiResponse(201, "Faculty created & password sent", faculty));
+});
+
+export const approveFacultyUpdate = asyncHandler(async (req, res, next) => {
+    const { facultyId } = req.body;
+    const faculty = await Faculty.findById(facultyId);
+    
+    if (!faculty) return next(new ApiError(404, "Faculty not found"));
+    if (!faculty.pendingUpdates) return next(new ApiError(400, "No updates to approve"));
+
+    // Pending updates ko actual profile me merge kar do
+    Object.assign(faculty, faculty.pendingUpdates);
+    faculty.pendingUpdates = {};
+
+    faculty.isApproved = true; // Approve flag set karna zaroori hai
+    await faculty.save();
+
+    res.status(200).json(new ApiResponse(200, "Faculty update approved"));
 });
