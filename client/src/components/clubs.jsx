@@ -8,7 +8,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-const Glance = () => {
+const Clubs = () => {
   return (
     <section className="glance mt-8">
       {/* Background Image */}
@@ -102,4 +102,4 @@ const Glance = () => {
   );
 };
 
-export default Glance;
+export default Clubs;

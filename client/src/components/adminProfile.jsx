@@ -12,7 +12,7 @@ const AdminProfile = () => {
     // ✅ Handle Logout
     const handleLogout = async () => {
         await logout();
-        navigate("/admin/login"); // ✅ Redirect to login page after logout
+        navigate("/admin/login"); 
     };
 
     return (
@@ -22,7 +22,6 @@ const AdminProfile = () => {
             <p><strong>Email:</strong> {admin.email}</p>
             <p><strong>Role:</strong> {admin.role}</p>
 
-            {/* ✅ Show Logout Button Only If Admin is Logged In */}
             {admin && (
                 <button
                     onClick={handleLogout}

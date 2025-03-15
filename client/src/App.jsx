@@ -58,7 +58,12 @@ import {
   AdministrativePeopleForm,
   GovernanceGroupsForm,
   AlumniForm,
-  CampusGalleryUpload
+  CampusGalleryUpload,
+  AchievementForm,
+  DynamicSectionForm,
+  ManagePage,
+  SectionConfigForm,
+  CreatePageForm
   
 } from "./pages/index";
 import ManageAcademicPrograms from "./pages/admin/manageAcademicProgram.jsx";
@@ -131,12 +136,17 @@ function App() {
           <Route path="/admin/adminisitrative-people-form" element={<AdministrativePeopleForm />} />
           <Route path="/admin/governance-group-form" element={<GovernanceGroupsForm />} />
           <Route path="/alumni-form" element={<AlumniForm/>} />
+          <Route path="/achievement-form" element={<AchievementForm/>} />
+          <Route path="/dynamic-section-form" element={<DynamicSectionForm sectionName="hero" alias="home"/>} />
           <Route path="/campus-upload" element={<CampusGalleryUpload/>} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/admin/profile" element={<AdminProfile />} />\
             <Route path="/admin/Dashboard" element={<AdminDashboard />} />
             <Route path="/admin/manage-home" element={<ManageHome />} />
+            <Route path="/admin/manage/:alias" element={<ManagePage />} />
+            <Route path="/admin/manage/:alias/createSection" element={<SectionConfigForm />} />
+            <Route path="/admin/createPage" element={<CreatePageForm />} />
             <Route path="/admin/manage-latest" element={<ManageLatest />} />
             <Route path="/admin/manage-academic-programs" element={<ManageAcademicPrograms />} />
           </Route>

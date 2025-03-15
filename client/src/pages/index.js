@@ -58,6 +58,11 @@ import AdministrativePeopleForm from "./admin/administrativePeople";
 import GovernanceGroupsForm from "./admin/governanceGroup";
 import AlumniForm from "./forms/alumniForm";
 import CampusGalleryUpload from "./forms/campusGallery";
+import AchievementForm from "./admin/forms/achievementForm";
+import DynamicSectionForm from "./admin/forms/dynamicSectionForm";
+import ManagePage from "./admin/managePage";
+import SectionConfigForm from "./admin/forms/sectionConfigForm";
+import CreatePageForm from "./admin/forms/createPageForm";
 export {
   Homepage,
   Director,
@@ -118,6 +123,11 @@ export {
   AdministrativePeopleForm,
   GovernanceGroupsForm,
   AlumniForm,
-  CampusGalleryUpload
+  CampusGalleryUpload,
+  AchievementForm,
+  DynamicSectionForm,
+  ManagePage,
+  SectionConfigForm,
+  CreatePageForm
   
 };

@@ -6,6 +6,9 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import adminRouter from "./routes/admin.routes.js";
 import alumniRouter from "./routes/alumni.routes.js";
 import academicProgramRouter from "./routes/academicPrograms.routes.js";
+import achievementRouter from "./routes/achievement.routes.js";
+import pageRouter from "./routes/page.routes.js";
+import pageSectionConfigRouter from "./routes/pageSectionConfig.routes.js"
 
 dotenv.config()
 const app = express();
@@ -25,8 +28,10 @@ app.get("/",(req,res)=>{
 
 app.use("/api/v1/admin",adminRouter);
 app.use("/api/v1/alumni",alumniRouter);
-app.use("/api/v1/page",adminRouter);
-app.use("/api/v1/academic-program",academicProgramRouter)
+app.use("/api/v1/page",pageRouter);
+app.use("/api/v1/pageSectionConfig",pageSectionConfigRouter);
+app.use("/api/v1/academic-program",academicProgramRouter);
+app.use("/api/v1/achievement",achievementRouter);
 app.use("error",errorHandler);
 
 

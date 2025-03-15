@@ -12,7 +12,7 @@ const router = Router();
 router.route("/academic").get(getAllAcademicPrograms);
 
 
-router.route("/home/academic").get(getUniqueDegreeTypes);
+router.route("/degrees").get(getUniqueDegreeTypes);
 
 
 router.route("/create").post(upload.single("image"), createAcademicProgram);

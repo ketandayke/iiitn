@@ -8,7 +8,7 @@ const AdminDashboard = () => {
 
     const fetchPages = async () => {
         try {
-            const response = await api.get("/admin/pages");
+            const response = await api.get("/page/getAllPages");
             setPages(response.data.data || []);
         } catch (error) {
             toast.error("Failed to load pages");
@@ -28,7 +28,7 @@ const AdminDashboard = () => {
                     {pages.map((page, index) => (
                         <Link
                             key={index}
-                            to={`/admin/manage-${page.alias}`}
+                            to={`/admin/manage/${page.alias}`}
                             className="block p-6 bg-blue-500 text-white rounded-xl text-center shadow-md hover:bg-blue-600 transition"
                         >
                             {`Manage ${page.alias}`}
@@ -42,6 +42,12 @@ const AdminDashboard = () => {
                         Manage Academic Programs
                     </Link>
                 </div>
+                   <Link
+                        to={`/admin/createPage`}
+                        className="block px-3 py-2 w-40 mt-4 bg-blue-500 text-white rounded-xl text-center shadow-md hover:bg-blue-600 transition"
+                    >
+                        Create Page
+                  </Link>
             </div>
         </div>
     );

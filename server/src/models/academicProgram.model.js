@@ -11,6 +11,11 @@ const AcademicProgramSchema = new Schema({
          enum: ["Undergraduate", "PhD", "Student Exchange"],
          required: true
          },
+    department: { 
+        type: String, 
+        enum: ["CSE", "ECE", "BASIC SCIENCE"], 
+        required: true 
+    },
     studentsSeat:{
         type:Number,
         required:true},

@@ -1,8 +1,24 @@
 import {mongoose,Schema} from "mongoose";
 
 const ResearchDomainSchema = new Schema({
-    name: String, // "AI & ML", "VLSI"
-    description: String,
+    name: {
+        type:String,
+    } ,
+    description:{
+        type: String,
+    },
+    department: {
+        type: String,
+        required: true,
+        enum: ["CSE", "ECE", "Basic Science"], 
+      },
+    researchAreas: [
+        {
+            title: String,
+            description: String,
+        },
+        ],
+    
     faculty: [{ type: mongoose.Schema.Types.ObjectId, ref: "Faculty" }],
     publications: [{ type: mongoose.Schema.Types.ObjectId, ref: "Publication" }]
 });

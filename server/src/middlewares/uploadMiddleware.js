@@ -2,10 +2,10 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 import { cloudinary } from "../config/cloudinary.config.js";
 import multer from "multer";
 
-// ✅ Define Storage Strategy for Cloudinary
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: async (req, file) => {
+        console.log(`filename ${file.originalname} and ${file.mimetype}`);
         const folder = file.mimetype === "application/pdf" ? "pdfs" : "images";
         return {
             folder: folder,
@@ -16,11 +16,11 @@ const storage = new CloudinaryStorage({
     }
 });
 
-// ✅ Define Multer Upload Middleware
 const upload = multer({
     storage: storage,
     limits: { fileSize: 10 * 1024 * 1024 }, // 10MB Limit
     fileFilter: (req, file, cb) => {
+        console.log(`this is file ${file} and reqest is ${req}`);
         const allowedTypes = ["image/jpeg", "image/png", "image/webp", "application/pdf"];
         if (allowedTypes.includes(file.mimetype)) {
             cb(null, true);

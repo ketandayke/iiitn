@@ -9,12 +9,12 @@ import Mission from "./mission.jsx";
 import StatsCounter from "./statsCounter.jsx";
 import Latest from "./latest.jsx";
 import News from "./news.jsx";
-import Glance from "./glance.jsx";
+import Clubs from "./clubs.jsx";
 import Events from "./events.jsx";
 import Partners from "./parteners.jsx";
 import Testimonials from "./testimonials.jsx";
 import Footer from "./footer.jsx";
-import FileGallery from "./fileGallery.jsx";
+import ContentSetList from "./contentSetList.jsx";
 import FileUploader from "./fileUploader.jsx";
 import Section from "./section.jsx";
 import SearchBar from "./searchBar";
@@ -34,12 +34,12 @@ export {
   StatsCounter,
   Latest,
   News,
-  Glance,
+  Clubs,
   Events,
   Partners,
   Testimonials,
   Footer,
-  FileGallery,
+  ContentSetList,
   FileUploader,
   Section,
   SearchBar,

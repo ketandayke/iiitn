@@ -1,22 +1,22 @@
 // components/Hero.jsx
 import React from 'react';
 
-const Hero = ({ data = [] }) => {
+const Hero = ({ data ={} }) => {
     // Find the first image with isVisible: true
-    const visibleImage = data.find(item => item.isVisible && item.type === 'image-text')?.value;
-
+    console.log("this is data",data);
+    
+    const activeImageUrl=data["image-1"]?data["image-1"]:"";
     return (
         <div 
-            className="w-full background bg-fixed mt-[6rem]" 
+            className="w-full h-screen background bg-fixed" 
             style={{
-                height: "calc(100vh - 6rem)", 
-                backgroundImage: visibleImage ? `url(${visibleImage})` : "none", 
+                backgroundImage: activeImageUrl ? `url(${activeImageUrl})` : "none", 
                 backgroundSize: "cover", 
                 backgroundPosition: "center",
-                backgroundColor: !visibleImage ? "#e5e7eb" : "transparent" // Fallback color if no image
+                backgroundColor: !activeImageUrl ? "#e5e7eb" : "transparent" 
             }}
         >
-            {!visibleImage && (
+            {!activeImageUrl && (
                 <div className="w-full h-full flex items-center justify-center text-gray-500">
                     No Hero Image Available
                 </div>

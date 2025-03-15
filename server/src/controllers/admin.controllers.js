@@ -1,6 +1,6 @@
 import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js";
-import { asyncHandler } from "../utils/asynHandler.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 import { Admin } from "../models/admin.model.js";
 import jwt from "jsonwebtoken";
 
@@ -34,7 +34,6 @@ const generateTokens = async (adminId) => {
 export const handleAdminLogin = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
     
-    // 🔹 **Check if Admin Email & Password Match Predefined Admin**
     if (email !== PREDEFINED_ADMIN.email || password !== PREDEFINED_ADMIN.password) {
         return next(new ApiError(401, "Invalid admin credentials!"));
     }

@@ -1,40 +1,20 @@
+
 import {mongoose,Schema} from "mongoose";
 
-const contentSchema = new Schema({
-    type:{
-        type:String,
-        required:true
-    },
-    value:{
-        type:mongoose.Schema.Types.Mixed,
-    },
-    isVisible:{
-        type:Boolean,
-        default:false,
-    },
-    heading:{
-        type:String,
-    },
-    description:{
-        type:String
-    },
-    date:{
-        type:Date
-    },
-    number:{
-        type:Number
-    }
-    
+const contentSetSchema = new Schema({
+        isActive: { 
+            type: Boolean, 
+            default: true }, 
+        fields: [] 
+
 })
 const sectionSchema = new Schema({
-      sectionType:{
+      sectionName:{
         type:String,
         required:true,
-        unique:true
         
-      },
-      allowedContentTypes: { type: [String], default: ["image", "text", "number"] },
-      content:[contentSchema]
+      }, 
+      contentSets:[contentSetSchema]
 })
 const pageSchema = new Schema(
     {

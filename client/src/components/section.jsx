@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FileUploader from "./fileUploader";
-import FileGallery from "./fileGallery";
+import FileGallery from "./contentSetList";
 import api from "../utils/axiosInstance";
 import toast, { Toaster } from "react-hot-toast";
 

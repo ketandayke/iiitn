@@ -1,46 +1,56 @@
-import {mongoose,Schema} from "mongoose";
+import { mongoose, Schema } from "mongoose";
 
-const AchievmentSchema = new Schema({
-    year:{
-        type:Number,
-        required:true
+const AchievementSchema = new Schema(
+  {
+    year: {
+         type: Number, 
+         required: true },
+    category: { 
+      type: String, 
+      enum: ["Student", "Faculty", "Other"], 
+      required: true 
     },
-    category:{
-        type:String,
-        enum:["Student","Faculty","other"],
+    name: { 
+        type: String, 
+        required: true },
+    title: {
+      type: String,
+      enum: [
+        "Paper Published",
+        "Conference Paper",
+        "Journal Paper",
+        "Grant Received",
+        "Patent Received",
+        "Competition Won",
+        "Other"
+      ],
+      required: true,
     },
-    name:{
-        type:String,
-        required:true
-
+    description: { type: String, required: true },
+    relatedLinks: [{ type: String }],
+    associatedPeople: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Faculty" }
+    ], // Linking to Faculty
+    department: { 
+      type: String, 
+      enum: ["CSE", "ECE", "BASIC SCIENCE"], 
+      required: true 
     },
-    title:{
-        type:String, //paper published,grant received,patent received ,competition won
-        required:true
+    image: {
+      type: String,
+      required: true,
     },
-    description:{
-        type:String,
-        required:true
+    amount: {
+      type: Number,
+      default: null, // Only applicable if title is "Grant Received"
     },
-    relatedLinks:[
-        {
-            type:String
-        }
-    ],
-    associatedPeople:[
-        {
-            type:String
-        }
-    ],
-    department:{
-        type:String,
-        enum:["CSE","ECE","BASIC SCIENCE"],
-
+    isActive:{
+      type:Boolean,
+      default:false
     }
-},
-{
-    timestamps:true
-}
+  },
+  { timestamps: true }
 );
 
-const Achivements =mongoose.model("Achivements",AchievmentSchema);
+const Achievement = mongoose.model("Achievement", AchievementSchema);
+export { Achievement };

@@ -1,6 +1,6 @@
 import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js";
-import { asyncHandler } from "../utils/asynHandler.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 import { Alumni } from "../models/alumni.model.js";
 import { upload } from "../middlewares/uploadMiddleware.js"; // Multer middleware
 
