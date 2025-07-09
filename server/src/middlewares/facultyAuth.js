@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
-import { Admin } from "../models/admin.model.js";
+import { Faculty } from "../models/faculty.model.js";
 import { ApiError } from "../utils/apiError.js";
 
-export const verifyAdminToken = asyncHandler(async (req, res, next) => {
+const verifyFacultyToken = asyncHandler(async (req, res, next) => {
     const token = req.cookies.accessToken;
 
     if (!token) {
@@ -12,10 +12,10 @@ export const verifyAdminToken = asyncHandler(async (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        req.admin = await Admin.findById(decoded._id).select("-password -refreshToken");
+        req.faculty = await Faculty.findById(decoded._id).select("-password -refreshToken");
 
-        if (!req.admin) {
-            return next(new ApiError(401, "Unauthorized! Admin not found."));
+        if (!req.faculty) {
+            return next(new ApiError(401, "Unauthorized! faculty not found."));
         }
 
         next();
@@ -23,3 +23,5 @@ export const verifyAdminToken = asyncHandler(async (req, res, next) => {
         return next(new ApiError(403, "Forbidden! Invalid token."));
     }
 });
+
+export {verifyFacultyToken}

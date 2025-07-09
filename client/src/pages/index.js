@@ -63,6 +63,7 @@ import DynamicSectionForm from "./admin/forms/dynamicSectionForm";
 import ManagePage from "./admin/managePage";
 import SectionConfigForm from "./admin/forms/sectionConfigForm";
 import CreatePageForm from "./admin/forms/createPageForm";
+import AdminDash from "./admindash";
 export {
   Homepage,
   Director,
@@ -128,6 +129,7 @@ export {
   DynamicSectionForm,
   ManagePage,
   SectionConfigForm,
-  CreatePageForm
+  CreatePageForm,
+  AdminDash
   
 };

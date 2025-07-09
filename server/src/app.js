@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import adminRouter from "./routes/admin.routes.js";
 import alumniRouter from "./routes/alumni.routes.js";
+import facultyRouter from "./routes/faculty.routes.js"
 import academicProgramRouter from "./routes/academicPrograms.routes.js";
 import achievementRouter from "./routes/achievement.routes.js";
 import pageRouter from "./routes/page.routes.js";
@@ -27,6 +28,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api/v1/admin",adminRouter);
+app.use("/api/v1/admin",facultyRouter);
 app.use("/api/v1/alumni",alumniRouter);
 app.use("/api/v1/page",pageRouter);
 app.use("/api/v1/pageSectionConfig",pageSectionConfigRouter);

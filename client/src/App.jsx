@@ -63,7 +63,8 @@ import {
   DynamicSectionForm,
   ManagePage,
   SectionConfigForm,
-  CreatePageForm
+  CreatePageForm,
+  AdminDash
   
 } from "./pages/index";
 import ManageAcademicPrograms from "./pages/admin/manageAcademicProgram.jsx";
@@ -139,6 +140,8 @@ function App() {
           <Route path="/achievement-form" element={<AchievementForm/>} />
           <Route path="/dynamic-section-form" element={<DynamicSectionForm sectionName="hero" alias="home"/>} />
           <Route path="/campus-upload" element={<CampusGalleryUpload/>} />
+          <Route path="/admin" element={<AdminDash />} />  {/* Add this line */}
+
 
           <Route element={<ProtectedRoute />}>
             <Route path="/admin/profile" element={<AdminProfile />} />\

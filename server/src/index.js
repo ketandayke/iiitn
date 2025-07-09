@@ -1,18 +1,18 @@
-import {app} from "./app.js";
+import { server } from "./server.js";
 import { ConnectDB } from "./db/index.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const PORT=process.env.PORT;
+const PORT=process.env.PORT||8000;
 
 ConnectDB()
 .then(()=>{
-    app.on("error",()=>{
+    server.on("error",()=>{
         console.log(`Error in database connection ${error}`);
     })
 
-    app.listen(PORT ||8000,()=>{
-        console.log(`App is live on http://localhost:${PORT}`);
+    server.listen(PORT ||8000,()=>{
+        console.log(`server is live on http://localhost:${PORT}`);
     })
 
 })
